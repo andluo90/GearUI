@@ -29,11 +29,17 @@
                 validator(value){
                     return value === 'left' || value === 'right'
                 }
+            },
+            "disable":{
+                type:Boolean,
+                default:false
             }
         },
         computed:{
             "classes":function () {
-                return this.position === 'right' ? `icon-${this.position}`:''
+                const disable = this.disable ? 'disable' : ''
+                const postion = this.position === 'right' ? `icon-${this.position}`:''
+                return [disable,postion]
             }
                 
             
@@ -97,7 +103,14 @@
         }
 
         > .loading {
-            animation: spin 2s infinite linear;
+            animation: spin 3s infinite linear;
+        }
+
+        &.disable {
+            background-color: #eee;
+            border-color: #ccc;
+            color: #bbb;
+            cursor: not-allowed;
         }
     }
 
