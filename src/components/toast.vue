@@ -6,7 +6,7 @@
                 <span class="close" @click="close">关闭</span>
             </template>
         </div>
-    
+
 </template>
 
 <script>
@@ -27,7 +27,7 @@
           },
           duration:{
               type:Number,
-              default:1
+              default:2
           }
 
         },
@@ -37,7 +37,11 @@
                 this.$destroy();
             }
         },
-
+        mounted() {
+            if(this.autoClose){
+                setTimeout(this.close,this.duration*1000)
+            }
+        }
 
 
     }

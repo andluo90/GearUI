@@ -72,7 +72,7 @@
 <!--    <g-toast :auto-close="false"></g-toast>-->
     <div style="margin:15px 0">
         <g-button @click.native="$toast('Hello Bottom')">向下弹出</g-button>
-        <g-button @click.native="$toast('Hello Up',{position:'top'})">向上弹出</g-button>
+        <g-button @click.native="$toast('Hello Up',{position:'top',autoClose:true})">向上弹出</g-button>
         <g-button @click.native="$toast('Hello Middle',{position:'middle'})">中间弹出</g-button>
     </div>
 
