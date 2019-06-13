@@ -34,6 +34,8 @@
                 type:Boolean,
                 default:false
             }
+
+
         },
         computed:{
             "classes":function () {
@@ -96,6 +98,7 @@
             > .icon-button {
                 order:2;
                 margin-left:.3em;
+                margin-right:0;
             }
             > .text {
                order:1;
