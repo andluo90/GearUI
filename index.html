@@ -68,6 +68,16 @@
         <g-input label="用户名" err-msg="用户名不能为空." direction="vertical"></g-input>
     </div>
 
+<!--    <g-toast></g-toast>-->
+<!--    <g-toast :auto-close="false"></g-toast>-->
+    <div style="margin:15px 0">
+        <g-button @click.native="$toast('Hello Bottom')">向下弹出</g-button>
+        <g-button @click.native="$toast('Hello Up',{position:'top'})">向上弹出</g-button>
+        <g-button @click.native="$toast('Hello Middle',{position:'middle'})">中间弹出</g-button>
+    </div>
+
+
+
 </div>
 
 <script src='./src/app.js' ></script>
