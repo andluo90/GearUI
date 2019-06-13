@@ -1,12 +1,13 @@
 <template>
-        <div class="g-toast" :class="`position-${position}`">
+    <div class="toast-wrapper" :class="`position-${position}`">
+        <div class="g-toast" >
             <span class="content"><slot>提示信息</slot></span>
             <template v-if="!autoClose">
                 <span class="assist"></span>
                 <span class="close" @click="close">关闭</span>
             </template>
         </div>
-
+    </div>
 </template>
 
 <script>
@@ -57,7 +58,39 @@
     $box-shadow:0px 0px 3px 0px rgba(0,0,0,0.50);
     $animation-duration: 300ms;
 
+    .toast-wrapper{
+        position: fixed;
+        left:50%;
+        transform: translateX(-50%);
 
+        &.position-bottom{
+
+            bottom:0;
+
+            > .g-toast{
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                animation: slide-up $animation-duration;
+            }
+        }
+
+        &.position-top{
+
+            top:0;
+            > .g-toast {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                animation: slide-down $animation-duration;
+            }
+        }
+        &.position-middle{
+            top:50%;
+            transform: translateX(-50%) translateY(-50%);
+            > .g-toast{
+                animation: fade-in $animation-duration;
+            }
+        }
+    }
 
     .g-toast {
         font-size: $font-size;
@@ -71,28 +104,11 @@
         border-radius: 4px;
         box-shadow: $box-shadow;
 
-        position: fixed;
-        left:50%;
-        transform: translateX(-50%);
 
-        &.position-bottom{
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            bottom:0;
-            animation: slide-up $animation-duration;
-        }
-        &.position-top{
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            top:0;
-            animation: slide-down $animation-duration;
 
-        }
-        &.position-middle{
-            top:50%;
-            transform: translateX(-50%) translateY(-50%);
-            animation: fade-in $animation-duration;
-        }
+
+
+
 
         > .content {
             flex-grow: 4;
