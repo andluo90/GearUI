@@ -10,6 +10,12 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+    .horizon {
+        .g-tab-body {
+            flex-grow: 1;
+        }
+    }
 
 </style>

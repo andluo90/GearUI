@@ -8,18 +8,20 @@
 <script>
     export default {
         name: "GearTabHead",
-        inject: ['eventHub'],
+        inject: ['eventHub','direction'],
         computed:{
             //获取子Item的序号及宽度
             "itemData":function () {
                 let tmp = {
                     index:[],
                     width:[],
+                    height:[]
                 };
                 this.$children.forEach((i)=>{
-                    const {width} = i.$el.getBoundingClientRect();
+                    const {width,height} = i.$el.getBoundingClientRect();
                     tmp.index.push(i.name);
-                    tmp.width.push(width)
+                    tmp.width.push(width);
+                    tmp.height.push(height)
 
                 });
                 console.log(`get data success`);
@@ -27,14 +29,22 @@
             }
 
         },
+
         mounted () {
             this.eventHub.$on('update:selected', (name) => {
+                const {index:indexArr,width:widthArr,height:heightArr} = this.itemData;
+                const index = indexArr.indexOf(name);
+                if(this.direction === 'horizon'){
 
-                    const {index:indexArr,width:widthArr} = this.itemData;
-                    const index = indexArr.indexOf(name);
+                    const height = heightArr[index];
+                    this.$refs.line.style.height = `${height}px`;
+                    this.$refs.line.style.top = `${index*height}px`;
+                }else{
                     const width = widthArr[index];
                     this.$refs.line.style.width = `${width}px`;
                     this.$refs.line.style.left = `${index*width}px`;
+                }
+
 
             })
         }
@@ -43,10 +53,27 @@
 
 <style scoped lang="scss">
 
+    $border-right:#bbb;
+
+    .horizon {
+        .g-tab-head {
+            flex-direction: column;
+            border-right:1px solid $border-right;
+            border-bottom:none;
+
+            > .line {
+                position: absolute;
+                right: -1px;
+                border-right: 2px solid cornflowerblue;
+                border-bottom: none;
+            }
+        }
+    }
+
     .g-tab-head {
         display: flex;
         position: relative;
-        border-bottom: 1px solid #bbbbbb;
+        border-bottom: 1px solid $border-right;
 
         > .line {
             position: absolute;

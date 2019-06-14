@@ -1,5 +1,5 @@
 <template>
-    <div class="g-tabs">
+    <div class="g-tabs" :class="direction">
         <slot></slot>
     </div>
 </template>
@@ -28,7 +28,9 @@
         },
         provide(){
             return {
-                eventHub:this.eventHub
+                eventHub:this.eventHub,
+                direction:this.direction
+
             }
         },
         created(){
@@ -50,6 +52,10 @@
 
     .g-tabs{
         max-width: 500px;
+
+        &.horizon {
+            display: flex;
+        }
     }
 
 </style>

@@ -29,8 +29,8 @@
 <style scoped lang="scss">
 
     .g-tab-pane {
-        padding:8px 16px;
-        min-height: 300px;
+        padding:16px;
+        min-height: 200px;
         color:#333;
         /*border:1px solid blanchedalmond;*/
         display: none;
