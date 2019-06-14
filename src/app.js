@@ -17,6 +17,9 @@ import Content from './components/layout/content'
 import Footer from './components/layout/footer'
 import Side from './components/layout/side'
 
+import Row from './components/grid/row'
+import Col from './components/grid/col'
+
 import Plugin from './components/plugin'
 
 Vue.component('g-button',Button);
@@ -35,6 +38,9 @@ Vue.component('g-header',Header);
 Vue.component('g-footer',Footer);
 Vue.component('g-content',Content);
 Vue.component('g-side',Side);
+
+Vue.component('g-row',Row);
+Vue.component('g-col',Col);
 
 
 
