@@ -22,7 +22,7 @@
         methods:{
             click:function () {
                 console.log(`click the ${this.name}`);
-                this.eventHub.$emit('update:selected',this.name)
+                this.eventHub.$emit('update:selected',this.name,this)
             }
         },
         created() {
@@ -37,18 +37,20 @@
 <style scoped lang="scss">
     $item-font-color:#666;
     $item-height:32px;
-    $item-padding:9px 16px;
+    $item-padding:20px 16px;
     $item-font-size:14px;
     $item-line-height:14px;
     $item-hover-color:#333;
+    $min-width:60px;
 
     .g-tab-item {
-        display: inline-block;
+        min-width: $min-width;
+        text-align: center;
         color:$item-font-color;
         font-size: $item-font-size;
         line-height: $item-line-height;
         padding: $item-padding;
-        border:1px solid #666;
+
         cursor: pointer;
 
         &:hover {
@@ -56,7 +58,8 @@
         }
 
         &.active {
-            color:orangered;
+            color:#333;
+            font-weight: bold;
         }
     }
 </style>
