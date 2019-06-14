@@ -22,7 +22,7 @@
         methods:{
             click:function () {
                 console.log(`click the ${this.name}`);
-                this.eventHub.$emit('update:selected',this.name,this)
+                this.eventHub.$emit('update:selected',this.name)
             }
         },
         created() {
@@ -37,11 +37,11 @@
 <style scoped lang="scss">
     $item-font-color:#666;
     $item-height:32px;
-    $item-padding:20px 16px;
+    $item-padding:20px 8px;
     $item-font-size:14px;
     $item-line-height:14px;
     $item-hover-color:#333;
-    $min-width:60px;
+    $min-width:80px;
 
     .g-tab-item {
         min-width: $min-width;
