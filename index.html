@@ -10,22 +10,19 @@
         html{
             font-size: 14px;
         }
-        h1,h2 {
+        h1,h2 ,h3,h4{
             color:#444
         }
         h2 {
             margin:15px;
 
         }
-        /*img {max-width: 100%;}*/
-        #app {
-            margin:25px;
-        }
+
     </style>
 </head>
 <body>
 <div id='app'>
-    <h1>{{ title }}</h1>
+
 <!--    <h2>按钮</h2>-->
 <!--    <g-button icon='set'>设置</g-button>-->
 <!--    <g-button>按钮</g-button>-->
@@ -47,65 +44,85 @@
 <!--        <g-button>下一页</g-button>-->
 <!--    </g-button-group>-->
 
-    <h2>输入框</h2>
+<!--    <h2>Input/输入框</h2>-->
 
-    <div>
-        <g-input placeholder="请输入"></g-input>
-    </div>
-    <div>
-        <g-input :disable="true" class="disable"></g-input>
-    </div>
-    <div>
-        <g-input value="用户名" ></g-input>
-    </div>
-    <div>
-        <g-input label="用户名"></g-input>
-    </div>
-    <div>
-        <g-input label="用户名" err-msg="用户名不能为空."></g-input>
-    </div>
-    <div>
-        <g-input label="用户名" err-msg="用户名不能为空." direction="vertical"></g-input>
-    </div>
+<!--    <div>-->
+<!--        <g-input placeholder="请输入"></g-input>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <g-input :disable="true" class="disable"></g-input>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <g-input value="用户名" ></g-input>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <g-input label="用户名"></g-input>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <g-input label="用户名" err-msg="用户名不能为空."></g-input>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <g-input label="用户名" err-msg="用户名不能为空." direction="vertical"></g-input>-->
+<!--    </div>-->
 
 <!--    <g-toast></g-toast>-->
 <!--    <g-toast :auto-close="false"></g-toast>-->
-    <div style="margin:15px 0">
-        <g-button @click.native="$toast('Hello Bottom')">向下弹出</g-button>
-        <g-button @click.native="$toast('Hello Up',{position:'top',autoClose:true})">向上弹出</g-button>
-        <g-button @click.native="$toast('Hello Middle',{position:'middle'})">中间弹出</g-button>
-    </div>
-    <h2>Tab选项卡</h2>
-    <div style="margin:15px 0">
-        <g-tabs selected="n2">
-            <g-tab-head>
-                <g-tab-item name="n1">1</g-tab-item>
-                <g-tab-item name="n2">2</g-tab-item>
-                <g-tab-item name="n3">3</g-tab-item>
-            </g-tab-head>
-            <g-tab-body>
-                <g-tab-pane name="n1">内容1</g-tab-pane>
-                <g-tab-pane name="n2">内容2</g-tab-pane>
-                <g-tab-pane name="n3">内容3</g-tab-pane>
-            </g-tab-body>
-        </g-tabs>
-    </div>
+<!--    <div style="margin:15px 0">-->
+<!--        <g-button @click.native="$toast('Hello Bottom')">向下弹出</g-button>-->
+<!--        <g-button @click.native="$toast('Hello Up',{position:'top',autoClose:true})">向上弹出</g-button>-->
+<!--        <g-button @click.native="$toast('Hello Middle',{position:'middle'})">中间弹出</g-button>-->
+<!--    </div>-->
+<!--    <h2>Tab/选项卡</h2>-->
+<!--    <h3>上下布局</h3>-->
+<!--    <div style="margin:15px 0">-->
+<!--        <g-tabs selected="n2">-->
+<!--            <g-tab-head>-->
+<!--                <g-tab-item name="n1">1</g-tab-item>-->
+<!--                <g-tab-item name="n2">2</g-tab-item>-->
+<!--                <g-tab-item name="n3">3</g-tab-item>-->
+<!--            </g-tab-head>-->
+<!--            <g-tab-body>-->
+<!--                <g-tab-pane name="n1">内容1</g-tab-pane>-->
+<!--                <g-tab-pane name="n2">内容2</g-tab-pane>-->
+<!--                <g-tab-pane name="n3">内容3</g-tab-pane>-->
+<!--            </g-tab-body>-->
+<!--        </g-tabs>-->
+<!--    </div>-->
 
-    <div>
-        <g-tabs selected="n3" direction="horizon">
-            <g-tab-head>
-                <g-tab-item name="n1">选项1</g-tab-item>
-                <g-tab-item name="n2">选项2</g-tab-item>
-                <g-tab-item name="n3">选项3</g-tab-item>
-            </g-tab-head>
-            <g-tab-body>
-                <g-tab-pane name="n1">内容1</g-tab-pane>
-                <g-tab-pane name="n2">内容2</g-tab-pane>
-                <g-tab-pane name="n3">内容3</g-tab-pane>
-            </g-tab-body>
-        </g-tabs>
-    </div>
+<!--    <h3>左右布局</h3>-->
 
+<!--    <div>-->
+<!--        <g-tabs selected="n3" direction="horizon">-->
+<!--            <g-tab-head>-->
+<!--                <g-tab-item name="n1">选项1</g-tab-item>-->
+<!--                <g-tab-item name="n2">选项2</g-tab-item>-->
+<!--                <g-tab-item name="n3">选项3</g-tab-item>-->
+<!--            </g-tab-head>-->
+<!--            <g-tab-body>-->
+<!--                <g-tab-pane name="n1">内容1</g-tab-pane>-->
+<!--                <g-tab-pane name="n2">内容2</g-tab-pane>-->
+<!--                <g-tab-pane name="n3">内容3</g-tab-pane>-->
+<!--            </g-tab-body>-->
+<!--        </g-tabs>-->
+<!--    </div>-->
+
+<!--    <h2>Layout/布局</h2>-->
+    <div style="width:400px;height: 400px">
+        <g-layout>
+            <g-header style="background-color:#ccc"></g-header>
+            <g-content style="background-color:#bbb"></g-content>
+            <g-footer style="background-color:#ddd"></g-footer>
+        </g-layout>
+    </div>
+    <g-layout>
+        <g-header>Header</g-header>
+            <g-layout>
+                <g-side>侧边栏</g-side>
+                <g-content>Content</g-content>
+            </g-layout>
+        <g-footer>Footer</g-footer>
+
+    </g-layout>
 </div>
 
 <script src='./src/app.js' ></script>
