@@ -10,6 +10,10 @@
         props:{
             span:{
                 type:Number
+            },
+            offset:{
+                type:Number
+
             }
         },
         data() {
@@ -19,11 +23,17 @@
         },
         computed:{
             classes(){
-                return this.span?`col-${this.span}`:''
+                const {span,offset} = this;
+                const colClass = span ? `col-${span}` : '';
+                const offsetClass = offset ? `offset-${offset}`:'';
+                return [colClass,offsetClass]
             },
             style(){
-                const margin = this.gap/2+'px';
-                return {marginLeft:margin,marginRight:margin}
+                const {gap} = this;
+
+                let padding = gap/2+'px';
+
+                return {paddingLeft:padding,paddingRight:padding}
             }
         }
     }
@@ -37,11 +47,23 @@
             &.#{$class-prefix}#{$n} {
                 width: ($n / 24) * 100%;
             }
+
+        }
+        $offset-class-prefix: offset-;
+        @for $n from 1 through 24 {
+            &.#{$offset-class-prefix}#{$n} {
+                margin-left: ($n / 24) * 100%;
+            }
+
         }
 
-        outline: 1px solid pink;
-        background-color:#eee;
-        height:40px;
+
+        > div {
+            outline: 1px solid pink;
+            background-color:#eee;
+            height:40px;
+        }
+
 
 
     }

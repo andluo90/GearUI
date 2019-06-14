@@ -126,24 +126,33 @@
 
 <!--    </g-layout>-->
     <h2>Grid/网格</h2>
+    <h3>有间距</h3>
     <g-row :gap="10" align="center">
-        <g-col :span="8"></g-col>
-        <g-col :span="8"></g-col>
-        <g-col :span="8"></g-col>
+        <g-col :span="8"><div></div></g-col>
+        <g-col :span="8"><div></div></g-col>
+        <g-col :span="8"><div></div></g-col>
     </g-row>
-
+    <h3>无间距</h3>
     <g-row >
-        <g-col :span="6"></g-col>
-        <g-col :span="6"></g-col>
-        <g-col :span="6"></g-col>
-        <g-col :span="6"></g-col>
+        <g-col :span="6"><div></div></g-col>
+        <g-col :span="6"><div></div></g-col>
+        <g-col :span="6"><div></div></g-col>
+        <g-col :span="6"><div></div></g-col>
     </g-row>
 
+    <h3>大小不等</h3>
     <g-row :gap="16">
-        <g-col :span="4"></g-col>
-        <g-col :span="8"></g-col>
-        <g-col :span="8"></g-col>
-        <g-col :span="4"></g-col>
+        <g-col :span="4"><div></div></g-col>
+        <g-col :span="8"><div></div></g-col>
+        <g-col :span="10"><div></div></g-col>
+        <g-col :span="2"><div></div></g-col>
+    </g-row>
+    <h3>偏移</h3>
+    <g-row :gap="10">
+        <g-col :span="2"><div></div></g-col>
+        <g-col :span="2"><div></div></g-col>
+        <g-col :span="2" :offset="8"><div></div></g-col>
+        <g-col :span="2" :offset="8"><div></div></g-col>
     </g-row>
 </div>
 
