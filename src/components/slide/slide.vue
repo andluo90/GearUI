@@ -1,6 +1,6 @@
 <template>
-    <div class="g-slides">
-        <div class="wrapper" ref="wrapper">
+    <div class="g-slides ">
+        <div class="wrapper" :class="animate" ref="wrapper">
             <slot></slot>
         </div>
         <div class="dot">
@@ -33,17 +33,22 @@
             return {
                 currentIndex:1,
                 totalItems:0,
-                width:0
+                currentImgIndex:2,
+                totalImgItems:0,
+                width:0,
+                animate:''
+
             }
         },
         computed:{
 
+
             left:function(){
-                return -this.width * (this.currentIndex-1) + 'px'
+                return -this.width * (this.currentImgIndex-1) + 'px'
             }
         },
         watch:{
-            currentIndex:function () {
+            currentImgIndex:function () {
                 console.log(`index change...`);
                 this.$refs.wrapper.style.left = this.left;
 
@@ -52,18 +57,46 @@
         methods:{
             init:function(){
                 this.totalItems = this.$el.children[0].children.length;
+                this.totalImgItems = this.totalItems + 2;
                 const {width} = this.$el.getBoundingClientRect();
                 this.width = width;
+
+                let s = this.$refs.wrapper;
+                let firstChild = s.firstChild;
+                let lastChild = s.lastChild;
+                firstChild = firstChild.cloneNode(firstChild);
+                lastChild = lastChild.cloneNode(lastChild);
+                s.prepend(lastChild);
+                s.append(firstChild);
+                this.$refs.wrapper.style.left = -width+'px';
+
+
+
                 if(this.autoPlay){
                     setInterval(this.playNext,this.playTime*1000)
                 }
             },
             playNext:function () {
                 if(this.currentIndex === this.totalItems){
-                    this.currentIndex = 1
+                    this.currentIndex = 1;
+
                 }else {
-                    this.currentIndex = this.currentIndex + 1
+                    this.currentIndex = this.currentIndex + 1;
                 }
+                this.currentImgIndex = this.currentImgIndex + 1;
+                if(this.currentImgIndex === 6){
+                    console.log(`变了`);
+                    this.$nextTick(()=>{
+                        setTimeout(()=>{
+                            this.animate = 'no-animate';
+                            this.currentImgIndex = 2;
+                            console.log(`再变了`);
+                        },300)
+
+                    })
+                }
+
+                console.log(`index is ${this.currentIndex} , img index is ${this.currentImgIndex}`)
 
             },
             playBack:function () {
@@ -88,6 +121,14 @@
             console.log(`mounted...`);
         },
         updated() {
+            if(this.animate !== ''){
+                setTimeout(()=>{
+                    this.animate = '';
+                    console.log(`animate update...`);
+
+                },300);
+            }
+
             console.log(`updated ... `);
         }
     }
@@ -102,6 +143,9 @@
             position: absolute;
             left:0;
             transition: left 300ms linear;
+            &.no-animate {
+                transition: none;
+            }
         }
 
         .dot {
