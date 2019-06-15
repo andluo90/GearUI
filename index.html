@@ -31,10 +31,10 @@
     <g-layout>
         <g-header>
             <g-row>
-                <g-col :span="2">
-                    <div clas="logo">GearUI</div>
+                <g-col :span="4">
+                    <div class="logo">GearUI官网</div>
                 </g-col>
-                <g-col :span="6" :offset="10">
+                <g-col :span="6" :offset="8">
                     <g-input class="search-input"></g-input>
                     <g-button class="search-btn">搜索</g-button>
                 </g-col>
@@ -42,11 +42,38 @@
                 <g-col :span="2">文档</g-col>
                 <g-col :span="2">交流</g-col>
 
-
-
             </g-row>
         </g-header>
-        <g-content>content</g-content>
+        <g-content>
+            <g-tabs>
+                <g-tabs selected="n3" direction="horizon">
+                    <g-tab-head>
+                        <g-tab-item name="n1">官网介绍</g-tab-item>
+                        <g-tab-item name="n2">入门介绍</g-tab-item>
+                        <g-tab-item name="n3">组件介绍</g-tab-item>
+                        <g-tab-item name="n4">Button</g-tab-item>
+                        <g-tab-item name="n5">Input</g-tab-item>
+                        <g-tab-item name="n6">Layout</g-tab-item>
+                        <g-tab-item name="n7">Grid</g-tab-item>
+                        <g-tab-item name="n8">Tabs</g-tab-item>
+                        <g-tab-item name="n9">Slide</g-tab-item>
+
+
+                    </g-tab-head>
+                    <g-tab-body>
+                        <g-tab-pane name="n1">官网介绍</g-tab-pane>
+                        <g-tab-pane name="n2">入门介绍</g-tab-pane>
+                        <g-tab-pane name="n3">组件介绍</g-tab-pane>
+                        <g-tab-pane name="n4">Button</g-tab-pane>
+                        <g-tab-pane name="n5">Input</g-tab-pane>
+                        <g-tab-pane name="n6">Layout</g-tab-pane>
+                        <g-tab-pane name="n7">Grid</g-tab-pane>
+                        <g-tab-pane name="n8">Tabs</g-tab-pane>
+                        <g-tab-pane name="n9">Slide</g-tab-pane>
+                    </g-tab-body>
+                </g-tabs>
+            </g-tabs>
+        </g-content>
         <g-footer>side</g-footer>
     </g-layout>
 </div>

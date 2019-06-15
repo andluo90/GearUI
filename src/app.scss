@@ -13,7 +13,7 @@ html{
           border-bottom:1px solid #eee;
 
           .logo {
-            font-size:28px;
+            font-size:24px;
             font-weight: bold;
           }
 
@@ -25,6 +25,12 @@ html{
           .search-btn {
             margin-left:.5em;
           }
+        }
+
+        .g-content {
+           .g-tab-head {
+             width:25%;
+           }
         }
       }
     }

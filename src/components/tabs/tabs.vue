@@ -51,7 +51,6 @@
 <style scoped lang="scss">
 
     .g-tabs{
-        max-width: 500px;
 
         &.horizon {
             display: flex;
