@@ -43,6 +43,11 @@
 <style scoped lang="scss">
 
     .g-col {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         $class-prefix: col-;
         @for $n from 1 through 24 {
             &.#{$class-prefix}#{$n} {
@@ -59,11 +64,7 @@
         }
 
 
-        > div {
-            outline: 1px solid pink;
-            background-color:#eee;
-            height:40px;
-        }
+
 
 
 

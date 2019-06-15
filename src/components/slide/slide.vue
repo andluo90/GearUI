@@ -5,7 +5,7 @@
         </div>
         <div class="dot">
             <g-icon class="dot-icon" name="back" @click.native="playBack"></g-icon>
-            <span v-for="n in totalItems" @click="clickDot(n)" :class="currentIndex===n?'active':''">{{ n }}</span>
+            <span v-for="n in totalItems" @click="clickDot(n)" :class="dotIndex===n?'active':''">{{ n }}</span>
             <g-icon class="dot-icon" name="forward" @click.native="playNext"></g-icon>
 
         </div>
@@ -31,7 +31,7 @@
         },
         data(){
             return {
-                currentIndex:1,
+                dotIndex:1,
                 totalItems:0,
                 currentImgIndex:2,
                 totalImgItems:0,
@@ -41,33 +41,26 @@
             }
         },
         computed:{
-
-
             left:function(){
                 return -this.width * (this.currentImgIndex-1) + 'px'
             }
         },
         watch:{
             currentImgIndex:function () {
-                console.log(`index change...`);
                 this.$refs.wrapper.style.left = this.left;
-
             }
         },
         methods:{
             init:function(){
+                //设置初始数据
                 this.totalItems = this.$el.children[0].children.length;
                 this.totalImgItems = this.totalItems + 2;
                 const {width} = this.$el.getBoundingClientRect();
                 this.width = width;
 
-                let s = this.$refs.wrapper;
-                let firstChild = s.firstChild;
-                let lastChild = s.lastChild;
-                firstChild = firstChild.cloneNode(firstChild);
-                lastChild = lastChild.cloneNode(lastChild);
-                s.prepend(lastChild);
-                s.append(firstChild);
+                this.appendTwoItems();
+
+
                 this.$refs.wrapper.style.left = -width+'px';
                 this.animate = 'no-animate';
 
@@ -76,38 +69,49 @@
                     setInterval(this.playNext,this.playTime*1000)
                 }
             },
+            appendTwoItems(){
+                //添加两个items用来做无缝轮播
+                let s = this.$refs.wrapper;
+                let firstChild = s.firstChild;
+                let lastChild = s.lastChild;
+                firstChild = firstChild.cloneNode(firstChild);
+                lastChild = lastChild.cloneNode(lastChild);
+                s.prepend(lastChild);
+                s.append(firstChild);
+            },
+
             playNext:function () {
-                if(this.currentIndex === this.totalItems){
-                    this.currentIndex = 1;
+                if(this.dotIndex === this.totalItems){
+                    this.dotIndex = 1;
                 }else {
-                    this.currentIndex = this.currentIndex + 1;
+                    this.dotIndex = this.dotIndex + 1;
                 }
                 this.currentImgIndex = this.currentImgIndex + 1;
                 if(this.currentImgIndex === 6){
                     this.$nextTick(()=>{
                         setTimeout(()=>{
                             this.animate = 'no-animate';
-                            this.currentImgIndex = 2;
+                            this.currentImgIndex = this.totalImgItems - this.totalItems;
                         },300)
 
                     })
                 }
 
-                console.log(`index is ${this.currentIndex} , img index is ${this.currentImgIndex}`)
 
             },
+
             playBack:function () {
-                if(this.currentIndex === 1){
-                    this.currentIndex = this.totalItems
+                if(this.dotIndex === 1){
+                    this.dotIndex = this.totalItems
                 }else {
-                    this.currentIndex = this.currentIndex - 1
+                    this.dotIndex = this.dotIndex - 1
                 }
                 this.currentImgIndex = this.currentImgIndex - 1;
                 if(this.currentImgIndex === 1){
                     this.$nextTick(()=>{
                         setTimeout(()=>{
                             this.animate = 'no-animate';
-                            this.currentImgIndex = 5;
+                            this.currentImgIndex = this.totalItems+1;
                         },300)
 
                     })
@@ -115,8 +119,8 @@
 
             },
             clickDot:function (n) {
-                if(this.currentIndex !== n){
-                    this.currentIndex = n;
+                if(this.dotIndex !== n){
+                    this.dotIndex = n;
                     this.currentImgIndex = n+1
                 }
 
@@ -125,20 +129,14 @@
         },
         mounted() {
             this.init();
-
-            window.slide = this; //测试用的
-            console.log(`mounted...`);
         },
         updated() {
             if(this.animate !== ''){
                 setTimeout(()=>{
                     this.animate = '';
-                    console.log(`animate update...`);
 
                 },300);
             }
-
-            console.log(`updated ... `);
         }
     }
 </script>
@@ -147,6 +145,7 @@
     .g-slides {
         overflow: hidden;
         position: relative;
+        background-color:#eee;
         .wrapper {
             display: flex;
             position: absolute;

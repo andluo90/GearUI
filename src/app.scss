@@ -1,0 +1,35 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+html{
+  font-size: 14px;
+  color:#444;
+
+  body {
+    #app {
+      .g-layout {
+        height: 100vh;
+
+        .g-header {
+          padding:12px;
+          border-bottom:1px solid #eee;
+
+          .logo {
+            font-size:28px;
+            font-weight: bold;
+          }
+
+          .search-input {
+            input {
+              min-width: 200px;
+            }
+          }
+          .search-btn {
+            margin-left:.5em;
+          }
+        }
+      }
+    }
+
+  }
+
+}
+

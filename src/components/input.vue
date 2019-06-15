@@ -66,7 +66,6 @@
         display: inline-flex;
         align-items: center;
         color: $font-color;
-        margin-bottom: 10px; //测试
         > :not(:last-child) {margin-right: .5em; }
 
         > input {

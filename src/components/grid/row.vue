@@ -41,7 +41,6 @@
 <style scoped lang="scss">
     .g-row {
         display: flex;
-        margin-bottom: 15px;
         &.align-center {
             justify-content: center;
         }

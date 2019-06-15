@@ -1,3 +1,5 @@
+import './app.scss'
+
 import Vue from 'vue'
 
 import Button from './components/button'
