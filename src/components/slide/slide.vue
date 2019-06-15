@@ -5,7 +5,7 @@
         </div>
         <div class="dot">
             <g-icon class="dot-icon" name="back" @click.native="playBack"></g-icon>
-            <span v-for="n in totalItems" @click="clickDot(n)">{{ n }}</span>
+            <span v-for="n in totalItems" @click="clickDot(n)" :class="currentIndex===n?'active':''">{{ n }}</span>
             <g-icon class="dot-icon" name="forward" @click.native="playNext"></g-icon>
 
         </div>
@@ -37,6 +37,7 @@
             }
         },
         computed:{
+
             left:function(){
                 return -this.width * (this.currentIndex-1) + 'px'
             }
@@ -49,6 +50,14 @@
             }
         },
         methods:{
+            init:function(){
+                this.totalItems = this.$el.children[0].children.length;
+                const {width} = this.$el.getBoundingClientRect();
+                this.width = width;
+                if(this.autoPlay){
+                    setInterval(this.playNext,this.playTime*1000)
+                }
+            },
             playNext:function () {
                 if(this.currentIndex === this.totalItems){
                     this.currentIndex = 1
@@ -74,14 +83,8 @@
 
         },
         mounted() {
-            this.totalItems = this.$el.children[0].children.length;
-            const {width} = this.$el.getBoundingClientRect();
-            this.width = width;
+            this.init();
             window.slide = this; //测试用的
-            if(this.autoPlay){
-                console.log(`auto play`);
-                setInterval(this.playNext,this.playTime*1000)
-            }
             console.log(`mounted...`);
         },
         updated() {
@@ -105,7 +108,7 @@
             color:#333;
             position: absolute;
             left:50%;
-            bottom:0;
+            bottom:5px;
             transform: translate(-50%);
             .dot-icon {
                 cursor: pointer;
@@ -113,6 +116,10 @@
             span {
                 padding:5px 7px;
                 cursor: pointer;
+
+                &.active {
+                    color: black;
+                }
             }
         }
     }
