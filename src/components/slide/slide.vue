@@ -69,7 +69,7 @@
                 s.prepend(lastChild);
                 s.append(firstChild);
                 this.$refs.wrapper.style.left = -width+'px';
-
+                this.animate = 'no-animate';
 
 
                 if(this.autoPlay){
@@ -79,18 +79,15 @@
             playNext:function () {
                 if(this.currentIndex === this.totalItems){
                     this.currentIndex = 1;
-
                 }else {
                     this.currentIndex = this.currentIndex + 1;
                 }
                 this.currentImgIndex = this.currentImgIndex + 1;
                 if(this.currentImgIndex === 6){
-                    console.log(`变了`);
                     this.$nextTick(()=>{
                         setTimeout(()=>{
                             this.animate = 'no-animate';
                             this.currentImgIndex = 2;
-                            console.log(`再变了`);
                         },300)
 
                     })
@@ -105,11 +102,22 @@
                 }else {
                     this.currentIndex = this.currentIndex - 1
                 }
+                this.currentImgIndex = this.currentImgIndex - 1;
+                if(this.currentImgIndex === 1){
+                    this.$nextTick(()=>{
+                        setTimeout(()=>{
+                            this.animate = 'no-animate';
+                            this.currentImgIndex = 5;
+                        },300)
+
+                    })
+                }
 
             },
             clickDot:function (n) {
                 if(this.currentIndex !== n){
                     this.currentIndex = n;
+                    this.currentImgIndex = n+1
                 }
 
             }
@@ -117,6 +125,7 @@
         },
         mounted() {
             this.init();
+
             window.slide = this; //测试用的
             console.log(`mounted...`);
         },
