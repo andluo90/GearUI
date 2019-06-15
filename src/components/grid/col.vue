@@ -30,9 +30,10 @@
             },
             style(){
                 const {gap} = this;
-
+                if(gap === 0){
+                    return {}
+                }
                 let padding = gap/2+'px';
-
                 return {paddingLeft:padding,paddingRight:padding}
             }
         }

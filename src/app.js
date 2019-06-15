@@ -22,6 +22,9 @@ import Col from './components/grid/col'
 
 import Plugin from './components/plugin'
 
+import Slide from './components/slide/slide'
+import SlideItem from './components/slide/slide-item'
+
 Vue.component('g-button',Button);
 Vue.component('g-button-group',ButtonGroup);
 Vue.component('g-input',Input);
@@ -39,10 +42,13 @@ Vue.component('g-footer',Footer);
 Vue.component('g-content',Content);
 Vue.component('g-side',Side);
 
+
+
 Vue.component('g-row',Row);
 Vue.component('g-col',Col);
 
-
+Vue.component('g-slide',Slide);
+Vue.component('g-slide-item',SlideItem);
 
 Vue.use(Plugin);
 

@@ -20,6 +20,17 @@
         #app {
             padding:20px;
         }
+
+        .g-slides {
+            width: 300px;
+            height: 200px;
+        }
+
+        .g-slides .img {
+            width: 300px;
+            height: 200px;
+            border:1px solid bisque;
+        }
     </style>
 </head>
 <body>
@@ -154,6 +165,16 @@
         <g-col :span="2" :offset="8"><div></div></g-col>
         <g-col :span="2" :offset="8"><div></div></g-col>
     </g-row>
+
+    <h2>Slide/轮播</h2>
+    <g-slide>
+        <g-slide-item>1</g-slide-item>
+        <g-slide-item>2</g-slide-item>
+        <g-slide-item>3</g-slide-item>
+        <g-slide-item>4</g-slide-item>
+    </g-slide>
+
+
 </div>
 
 <script src='./src/app.js' ></script>

@@ -3,7 +3,7 @@
         <g-icon v-if="!loading && icon" class='icon-button' :name='icon'></g-icon>
         <g-icon v-if="loading " class='icon-button loading' name='loading'></g-icon>
         <span>
-            <slot class='text'>按钮</slot>
+            <slot class='text'></slot>
         </span>
     </button>
 </template>
