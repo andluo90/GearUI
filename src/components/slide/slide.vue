@@ -19,6 +19,16 @@
         components:{
             'g-icon':Icon
         },
+        props:{
+          autoPlay:{
+              type:Boolean,
+              default:false
+          },
+          playTime:{
+              type:Number,
+              default:3
+          }
+        },
         data(){
             return {
                 currentIndex:1,
@@ -68,6 +78,10 @@
             const {width} = this.$el.getBoundingClientRect();
             this.width = width;
             window.slide = this; //测试用的
+            if(this.autoPlay){
+                console.log(`auto play`);
+                setInterval(this.playNext,this.playTime*1000)
+            }
             console.log(`mounted...`);
         },
         updated() {
