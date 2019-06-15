@@ -83,6 +83,8 @@
         .wrapper {
             display: flex;
             position: absolute;
+            left:0;
+            transition: left 300ms linear;
         }
 
         .dot {
