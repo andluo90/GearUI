@@ -9,28 +9,37 @@
     export default {
         name: "GearTabHead",
         inject: ['eventHub','direction'],
-        computed:{
-            //获取子Item的序号及宽度
-            "itemData":function () {
-                let tmp = {
+        data(){
+            return {
+                itemData:{
                     index:[],
                     width:[],
                     height:[]
-                };
-                this.$children.forEach((i)=>{
-                    const {width,height} = i.$el.getBoundingClientRect();
-                    tmp.index.push(i.name);
-                    tmp.width.push(width);
-                    tmp.height.push(height)
-
-                });
-                console.log(`get data success`);
-                return tmp
+                }
             }
-
         },
 
+        created(){
+            this.eventHub.$on('updated:xxx',(name,dataObject)=>{
+                console.log(`xxx`);
+                console.log(name);
+                console.log(dataObject);
+            })
+        },
+
+
         mounted () {
+            this.$children.forEach((i)=>{
+                const {width,height} = i.$el.getBoundingClientRect();
+                // if(width === 0 || height === 0){
+                //     console.log(`width is ${width} , height is ${height}`);
+                //     console.log(i.$el)
+                // }
+                this.itemData.index.push(i.name);
+                this.itemData.width.push(width);
+                this.itemData.height.push(height)
+
+            });
             this.eventHub.$on('update:selected', (name) => {
                 const {index:indexArr,width:widthArr,height:heightArr} = this.itemData;
                 const index = indexArr.indexOf(name);
@@ -46,7 +55,7 @@
                 }
 
 
-            })
+            });
         }
     }
 </script>
@@ -56,7 +65,8 @@
     $border-right:#bbb;
 
     .horizon {
-        .g-tab-head {
+        > .g-tab-head {
+            position: relative;
             flex-direction: column;
             border-right:1px solid $border-right;
             border-bottom:none;
@@ -66,21 +76,25 @@
                 right: -1px;
                 border-right: 2px solid cornflowerblue;
                 border-bottom: none;
+                transition: all 350ms;
+            }
+        }
+    }
+    .vertical {
+        > .g-tab-head {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            border-bottom:1px solid $border-right;
+
+            > .line {
+                position: absolute;
+                bottom: -1px;
+                border-bottom: 2px solid cornflowerblue;
+                transition: all 350ms;
             }
         }
     }
 
-    .g-tab-head {
-        display: flex;
-        position: relative;
-        border-bottom: 1px solid $border-right;
-
-        > .line {
-            position: absolute;
-            bottom: -1px;
-            border-bottom: 2px solid cornflowerblue;
-            transition: all 350ms;
-        }
-    }
 
 </style>

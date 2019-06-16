@@ -21,7 +21,6 @@
         },
         methods:{
             click:function () {
-                console.log(`click the ${this.name}`);
                 this.eventHub.$emit('update:selected',this.name)
             }
         },
@@ -30,6 +29,7 @@
                 this.active = this.name === name;
             })
         }
+
 
     }
 </script>
@@ -44,7 +44,7 @@
     $min-width:80px;
 
     .g-tab-item {
-        min-width: $min-width;
+        /*<!--min-width: $min-width;-->*/
         text-align: center;
         color:$item-font-color;
         font-size: $item-font-size;

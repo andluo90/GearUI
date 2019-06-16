@@ -13,16 +13,12 @@
             height: 200px;
         }
 
-        .g-slides .img {
-            width: 300px;
-            height: 200px;
 
-        }
         .g-slides .img>div {
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 20px;
+            font-size: 40px;
             color: #fff;
         }
     </style>
@@ -33,25 +29,23 @@
         <g-header>
             <g-row>
                 <g-col :span="5">
-                    <div class="logo">GearUI官网</div>
+                    <div class="logo btn">GearUI官网</div>
                 </g-col>
                 <g-col :span="5"></g-col>
                 <g-col :span="8" class="search">
                     <g-input class="search-input"></g-input>
                     <g-button class="search-btn" @click.native="search">搜索</g-button>
                 </g-col>
-                <g-col :span="2">主页</g-col>
-                <g-col :span="2">文档</g-col>
-                <g-col :span="2">关于</g-col>
+                <g-col :span="2" class="btn">主页</g-col>
+                <g-col :span="2" class="btn">文档</g-col>
+                <g-col :span="2" class='btn' @click.native="goHome">关于</g-col>
 
             </g-row>
         </g-header>
         <g-content>
-            <g-tabs>
-                <g-tabs selected="n4" direction="horizon">
+                <g-tabs key="t1" id='tabs' :selected="select" direction="horizon">
                     <g-tab-head id="tab-head">
                         <g-tab-item name="n1">介绍</g-tab-item>
-                        <g-tab-item name="n2">入门</g-tab-item>
                         <g-tab-item name="n3">组件</g-tab-item>
                         <g-tab-item name="n4">Button</g-tab-item>
                         <g-tab-item name="n5">ButtonGroup</g-tab-item>
@@ -63,16 +57,17 @@
                         <g-tab-item name="n11">Slide</g-tab-item>
 
                     </g-tab-head>
-                    <g-tab-body>
+                    <g-tab-body id="tab-body">
                         <g-tab-pane name="n1">
                             <div>
                                 <h1>介绍</h1>
                                 <p>这是一个用 Vue 写的简单的 UI 框架</p>
+                                <p>涵盖了常用的几个组件</p>
                                 <p>本官网就是用已实现的 UI 组件编写的!</p>
                                 <p>项目代码</p>
+                                <a href="https://www.baidu.com">    baidu.com</a>
                             </div>
                         </g-tab-pane>
-                        <g-tab-pane name="n2">入门</g-tab-pane>
                         <g-tab-pane name="n3">组件介绍</g-tab-pane>
                         <g-tab-pane name="n4">
                             <div class="button-demo">
@@ -298,11 +293,114 @@
                                 <p>1.添加消失的动画</p>
                             </div>
                         </g-tab-pane>
-                        <g-tab-pane name="n10">Tabs</g-tab-pane>
-                        <g-tab-pane name="n11">Slide</g-tab-pane>
+                        <g-tab-pane name="n10">
+                            <div class="tabs-demo">
+                                <h1>Tabs / 选项卡</h1>
+                                <h2>简单使用</h2>
+                                <h3>预览</h3>
+                                <h4>上下排列</h4>
+                                <g-tabs key='t2' selected='n2'>
+                                    <g-tab-head>
+                                        <g-tab-item name="n1">选项1</g-tab-item>
+                                        <g-tab-item name="n2">选项2</g-tab-item>
+                                        <g-tab-item name="n3">选项3</g-tab-item>
+                                    </g-tab-head>
+                                    <g-tab-body>
+                                        <g-tab-pane name="n1">内容1</g-tab-pane>
+                                        <g-tab-pane name="n2">内容2</g-tab-pane>
+                                        <g-tab-pane name="n3">内容3</g-tab-pane>
+                                    </g-tab-body>
+                                </g-tabs>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-tabs selected='n2'>`"></code>
+                                    <code v-text="`    <g-tab-head>`"></code>
+                                    <code v-text="`        <g-tab-item name='n1'>选项1</g-tab-item>`"></code>
+                                    <code v-text="`       <g-tab-item name='n2'>选项2</g-tab-item>`"></code>
+                                    <code v-text="`        <g-tab-item name='n3'>选项3</g-tab-item>`"></code>
+                                    <code v-text="`    </g-tab-head>`"></code>
+                                    <code v-text="`    <g-tab-body>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n1'>内容1</g-tab-pane>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n2'>内容2</g-tab-pane>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n3'>内容3</g-tab-pane>`"></code>
+                                    <code v-text="`    </g-tab-body>`"></code>
+                                    <code v-text="`</g-tabs>`"></code>
+                                </pre>
+                                <h4>左右排列</h4>
+                                <div>
+                                    <g-tabs selected="n3" direction="horizon">
+                                        <g-tab-head>
+                                            <g-tab-item name="n1">选项1</g-tab-item>
+                                            <g-tab-item name="n2">选项2</g-tab-item>
+                                            <g-tab-item name="n3">选项3</g-tab-item>
+                                        </g-tab-head>
+                                        <g-tab-body>
+                                            <g-tab-pane name="n1">内容1</g-tab-pane>
+                                            <g-tab-pane name="n2">内容2</g-tab-pane>
+                                            <g-tab-pane name="n3">内容3</g-tab-pane>
+                                        </g-tab-body>
+                                    </g-tabs>
+                                </div>
+                                <pre class="language-xml" id="pre1">
+                                    <code v-text="`<g-tabs selected='n2'>`"></code>
+                                    <code v-text="`    <g-tab-head>`"></code>
+                                    <code v-text="`        <g-tab-item name='n1'>选项1</g-tab-item>`"></code>
+                                    <code v-text="`       <g-tab-item name='n2'>选项2</g-tab-item>`"></code>
+                                    <code v-text="`        <g-tab-item name='n3'>选项3</g-tab-item>`"></code>
+                                    <code v-text="`    </g-tab-head>`"></code>
+                                    <code v-text="`    <g-tab-body>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n1'>内容1</g-tab-pane>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n2'>内容2</g-tab-pane>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n3'>内容3</g-tab-pane>`"></code>
+                                    <code v-text="`    </g-tab-body>`"></code>
+                                    <code v-text="`</g-tabs>`"></code>
+                                </pre>
+
+                                <h3>待完善</h3>
+
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n11">
+                            <h1>Slide / 无缝轮播组件</h1>
+                            <h2>简单使用</h2>
+                            <h3>预览</h3>
+                            <g-slide :width="450">
+                            <g-slide-item>
+                                <div style="background-color: lightblue;height:100%" >1</div>
+                            </g-slide-item>
+                            <g-slide-item>
+                                <div style="background-color: lightcoral ;height:100% ">2</div>
+                            </g-slide-item>
+                            <g-slide-item>
+                                <div style="background-color: lightsalmon ;height:100%">3</div>
+                            </g-slide-item>
+                            <g-slide-item>
+                                <div style="background-color: lightsteelblue ;height:100%">4</div>
+                            </g-slide-item>
+                        </g-slide>
+                            <h3>代码</h3>
+                            <pre class="language-xml">
+                                <code v-text="`<g-slide :width='450' :autoPlay='false'>`"></code>
+                                <code v-text="`    <g-slide-item>`"></code>
+                                <code v-text="`        <div>1</div>`"></code>
+                                <code v-text="`    </g-slide-item>`"></code>
+                                <code v-text="`    <g-slide-item>`"></code>
+                                <code v-text="`        <div>2</div>`"></code>
+                                <code v-text="`    </g-slide-item>`"></code>
+                                <code v-text="`    <g-slide-item>`"></code>
+                                <code v-text="`        <div>3</div>`"></code>
+                                <code v-text="`    </g-slide-item>`"></code>
+                                <code v-text="`    <g-slide-item>`"></code>
+                                <code v-text="`        <div>4</div>`"></code>
+                                <code v-text="`    </g-slide-item>`"></code>
+                                <code v-text="`</g-slide>`"></code>
+
+                            </pre>
+                            <h3>待完善</h3>
+                            <p>整个组件写得不太好，需要重新优化</p>
+                        </g-tab-pane>
                     </g-tab-body>
                 </g-tabs>
-            </g-tabs>
+
         </g-content>
         <g-footer>@GearUI 官网</g-footer>
     </g-layout>

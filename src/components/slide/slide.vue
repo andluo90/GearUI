@@ -27,6 +27,13 @@
           playTime:{
               type:Number,
               default:3
+          },
+          width:{
+              type:Number,
+              default:0,
+              validate(value){
+                  return value !== 0;
+              }
           }
         },
         data(){
@@ -35,7 +42,6 @@
                 totalItems:0,
                 currentImgIndex:2,
                 totalImgItems:0,
-                width:0,
                 animate:''
 
             }
@@ -55,8 +61,7 @@
                 //设置初始数据
                 this.totalItems = this.$el.children[0].children.length;
                 this.totalImgItems = this.totalItems + 2;
-                let {width} = this.$el.getBoundingClientRect();
-                this.width = width;
+
                 console.log(this.$el.getBoundingClientRect());
                 console.log(this.$el);
 
@@ -65,7 +70,7 @@
                 this.appendTwoItems();
 
 
-                this.$refs.wrapper.style.left = -width+'px';
+                this.$refs.wrapper.style.left = -this.width+'px';
                 this.animate = 'no-animate';
 
 

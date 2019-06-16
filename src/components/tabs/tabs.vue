@@ -41,7 +41,6 @@
             })
         },
         mounted() {
-            console.log(`select ${this.selected}`);
             this.eventHub.$emit('update:selected',this.selectedName)
         }
 

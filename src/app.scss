@@ -29,13 +29,18 @@ html{
 
         }
       }
+      #pre1 {
+        margin-top:30px;
+      }
       .g-layout {
         height: 100vh;
 
         .g-header {
           padding:12px;
           border-bottom:1px solid $border-color;
-
+          .btn {
+            cursor: pointer;
+          }
           .logo {
             font-size:24px;
             font-weight: bold;
@@ -56,106 +61,112 @@ html{
           overflow: scroll;
 
 
-           .g-tab-head {
-             width:25%;
+          #tab-head {
+            width:25%;
 
-             .g-tab-item {
-                font-size:1.1rem;
-               &:first-child {
-                 padding-top:20px;
-               }
-             }
-           }
+            >.g-tab-item {
+              font-size:1.1rem;
+              &:first-child {
+                padding-top:20px;
+              }
+            }
+          }
 
-           .g-tab-pane {
-             color:#333;
-             padding-left:60px;
-             padding-top:40px;
+          #tab-body {
+            >.g-tab-pane {
+              color:#333;
+              padding-left:60px;
+              padding-top:40px;
 
-             h1 {
-               padding-bottom:40px;
-             }
-             h2 {
-               padding-bottom:30px;
-             }
-             h3 {
-               padding:20px 0;
-             }
-             h4 {
-               padding:15px 0;
-             }
-             p {
-               font-size: 1.1rem;
+
+
+
+              h1 {
+                padding-bottom:40px;
+              }
+              h2 {
+                padding-bottom:30px;
+              }
+              h3 {
+                padding:20px 0;
+              }
+              h4 {
+                padding:15px 0;
+              }
+              p {
+                font-size: 1.1rem;
                 margin:10px 0;
-             }
+              }
 
-             .button-demo {
+              .button-demo {
                 .g-button {
                   margin-right:20px;
                 }
-             }
+              }
 
-             .input-demo {
-               margin-bottom: 20px;
+              .input-demo {
+                margin-bottom: 20px;
 
-               > .g-input {
-                 margin-right:20px;
-               }
+                > .g-input {
+                  margin-right:20px;
+                }
 
-               &:last-child {
-                 margin-bottom: 0;
-               }
-             }
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              }
 
-             .layout-demo {
-               margin:30px 0;
+              .layout-demo {
+                margin-bottom:30px;
 
-               .g-layout{
-                 height:200px;
-                 width: 400px;
-                 color:#fff;
-                 .g-header {
-                   padding:10px;
-                   background-color: lightblue;
-                   text-align: center;
-                 }
-                 .g-footer {
-                   padding:10px;
-                   background-color: lightblue;
-                 }
-                 .g-content {
-                   background-color: skyblue;
-                   display: flex;
-                   justify-content: center;
-                   align-items: center;
-                 }
-                 .g-side {
-                   padding:30px;
-                   background-color: lightblue;
-                   display: flex;
-                   justify-content: center;
-                   align-items: center;
-                 }
+                .g-layout{
+                  height:200px;
+                  width: 400px;
+                  color:#fff;
+                  .g-header {
+                    padding:10px;
+                    background-color: lightblue;
+                    text-align: center;
+                  }
+                  .g-footer {
+                    padding:10px;
+                    background-color: lightblue;
+                  }
+                  .g-content {
+                    background-color: skyblue;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  }
+                  .g-side {
+                    padding:30px;
+                    background-color: lightblue;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  }
 
-               }
-             }
+                }
+              }
 
-             .grid-demo {
-               .g-row {
-                 margin-bottom: 20px;
-               }
-               .g-col {
+              .grid-demo {
+                .g-row {
+                  margin-bottom: 20px;
+                }
+                .g-col {
 
-                 div {
-                   outline: 1px solid pink;
-                   background-color:#eee;
-                   height:40px;
-                   flex-grow: 1;
-                 }
+                  div {
+                    outline: 1px solid pink;
+                    background-color:#eee;
+                    height:40px;
+                    flex-grow: 1;
+                  }
 
-               }
-             }
-           }
+                }
+              }
+            }
+          }
+
 
           .g-slides {
             width: 450px;
@@ -164,6 +175,7 @@ html{
             .g-slide-item {
               width: 450px;
               height: 300px;
+
             }
           }
         }
