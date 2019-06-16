@@ -4,7 +4,7 @@ $search-btn-min-width:58px;
 
 * {margin: 0; padding: 0; box-sizing: border-box;}
 html{
-  font-size: 14px;
+  font-size: 16px;
   color:#444;
 
   body {
@@ -14,11 +14,10 @@ html{
         display: flex;
         flex-direction: column;
         background: #333;
-        max-width: 600px;
+        max-width: 800px;
         color: #fff;
         padding: 20px;
         border-radius: 8px;
-        font-size:1.1rem;
         > code {
           margin-bottom: 10px;
 
@@ -68,9 +67,7 @@ html{
 
            .g-tab-pane {
              color:#333;
-             .g-button {
-               margin-right:20px;
-             }
+
              h1 {
                padding-bottom:40px;
              }
@@ -106,7 +103,7 @@ html{
             padding-top:1.1rem;
             padding-bottom:1.1rem;
             text-align: center;
-            font-size: 1rem;
+            font-size: .9rem;
         }
       }
     }

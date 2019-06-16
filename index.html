@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="./prism.css" rel="stylesheet">
     <title>Gear UI</title>
     <style type="text/css">
 
@@ -53,12 +54,12 @@
                         <g-tab-item name="n2">入门</g-tab-item>
                         <g-tab-item name="n3">组件</g-tab-item>
                         <g-tab-item name="n4">Button</g-tab-item>
-                        <g-tab-item name="n5">Input</g-tab-item>
-                        <g-tab-item name="n6">Layout</g-tab-item>
-                        <g-tab-item name="n7">Grid</g-tab-item>
-                        <g-tab-item name="n8">Tabs</g-tab-item>
-                        <g-tab-item name="n9">Slide</g-tab-item>
-
+                        <g-tab-item name="n5">ButtonGroup</g-tab-item>
+                        <g-tab-item name="n6">Input</g-tab-item>
+                        <g-tab-item name="n7">Layout</g-tab-item>
+                        <g-tab-item name="n8">Grid</g-tab-item>
+                        <g-tab-item name="n9">Tabs</g-tab-item>
+                        <g-tab-item name="n10">Slide</g-tab-item>
 
                     </g-tab-head>
                     <g-tab-body>
@@ -66,34 +67,8 @@
                             <div>
                                 <h1>介绍</h1>
                                 <p>这是一个用 Vue 写的简单的 UI 框架</p>
-                                <p>目前已实现的 UI 组件分别有：</p>
-                                <g-slide>
-                                    <g-slide-item>
-                                        <div style="background-color: lightblue;height:100%" >Button / 按钮</div>
-                                    </g-slide-item>
-                                    <g-slide-item>
-                                        <div style="background-color: red ;height:100% ">Button / 按钮组</div>
-                                    </g-slide-item>
-                                    <g-slide-item>
-                                        <div style="background-color: pink ;height:100%">Input / 输入框</div>
-                                    </g-slide-item>
-                                    <g-slide-item>
-                                        <div style="background-color: orange ;height:100%">Icon / 图标</div>
-                                    </g-slide-item>
-                                    <g-slide-item>
-                                        <div style="background-color: orange ;height:100%">Layout / 布局</div>
-                                    </g-slide-item>
-                                    <g-slide-item>
-                                        <div style="background-color: orange ;height:100%">Grid / 网格</div>
-                                    </g-slide-item>
-                                    <g-slide-item>
-                                        <div style="background-color: orange ;height:100%">Tabs / 选项卡</div>
-                                    </g-slide-item>
-                                    <g-slide-item>
-                                        <div style="background-color: orange ;height:100%">Slide / 轮播</div>
-                                    </g-slide-item>
-                                </g-slide>
                                 <p>本官网就是用已实现的 UI 组件编写的!</p>
+                                <p>项目代码</p>
                             </div>
                         </g-tab-pane>
                         <g-tab-pane name="n2">入门</g-tab-pane>
@@ -113,7 +88,7 @@
                                 </div>
 
                                 <h3>代码</h3>
-                                <pre>
+                                <pre class="language-xml">
                                     <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
                                     <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
                                     <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
@@ -126,7 +101,39 @@
                                 <h4>待完善</h4>
                             </div>
                         </g-tab-pane>
-                        <g-tab-pane name="n5">Input</g-tab-pane>
+                        <g-tab-pane name="n5">
+                            <div>
+                                <h1>ButtonGroup / 按钮组</h1>
+                                <h2>简单用法</h2>
+                                <h3>预览</h3>
+                                <div>
+                                    <g-button-group>
+                                        <g-button icon="back">上一页</g-button>
+                                        <g-button icon="forward" position="right">下一页</g-button>
+                                    </g-button-group>
+
+                                    <g-button-group>
+                                        <g-button>上一页</g-button>
+                                        <g-button>更多</g-button>
+                                        <g-button>下一页</g-button>
+                                    </g-button-group>
+                                </div>
+                                <h3>代码</h3>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-button-group>`"></code>
+                                    <code v-text="`    <g-button icon='back'>上一页</g-button>`"></code>
+                                    <code v-text="`    <g-button icon='forward' position='right'>下一页</g-button>`"></code>
+                                    <code v-text="`</g-button-group>`"></code>
+                                    <code v-text="`<g-button-group>`"></code>
+                                    <code v-text="`    <g-button icon='back'>上一页</g-button>`"></code>
+                                    <code v-text="`    <g-button>更多</g-button>`"></code>
+                                    <code v-text="`    <g-button icon='forward' position='right'>下一页</g-button>`"></code>
+                                    <code v-text="`</g-button-group>`"></code>
+                                </pre>
+                                <h3>待完善</h3>
+
+                            </div>
+                        </g-tab-pane>
                         <g-tab-pane name="n6">Layout</g-tab-pane>
                         <g-tab-pane name="n7">Grid</g-tab-pane>
                         <g-tab-pane name="n8">Tabs</g-tab-pane>
@@ -135,9 +142,10 @@
                 </g-tabs>
             </g-tabs>
         </g-content>
-        <g-footer>@GearUI官网</g-footer>
+        <g-footer>@GearUI 官网</g-footer>
     </g-layout>
 </div>
+<script src="./prism.js" ></script>
 <script src='./src/app.js' ></script>
 </body>
 
