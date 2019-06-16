@@ -74,7 +74,7 @@
                         <g-tab-pane name="n2">入门</g-tab-pane>
                         <g-tab-pane name="n3">组件介绍</g-tab-pane>
                         <g-tab-pane name="n4">
-                            <div>
+                            <div class="button-demo">
                                 <h1>Button / 按钮</h1>
                                 <h2>简单用法</h2>
                                 <h3>预览</h3>
@@ -134,10 +134,84 @@
 
                             </div>
                         </g-tab-pane>
-                        <g-tab-pane name="n6">Layout</g-tab-pane>
-                        <g-tab-pane name="n7">Grid</g-tab-pane>
-                        <g-tab-pane name="n8">Tabs</g-tab-pane>
-                        <g-tab-pane name="n9">Slide</g-tab-pane>
+                        <g-tab-pane name="n6">
+                            <div>
+                                <h1>Input / 输入框</h1>
+                                <h2>简单用法</h2>
+                                <h3>预览</h3>
+                                <div class="input-demo">
+                                    <g-input placeholder="请输入"></g-input>
+                                    <g-input :disable="true" class='disable'></g-input>
+                                </div>
+
+                                <div class="input-demo">
+                                    <g-input label='用户名'></g-input>
+                                    <g-input label="密码" err-msg="密码不能为空."></g-input>
+                                </div>
+                                <div class="input-demo">
+                                    <g-input label='账号' err-msg='账号不能为空.' direction='vertical'></g-input>
+                                </div>
+                                <h3>代码</h3>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-input placeholder='请输入'></g-input>`"></code>
+                                    <code v-text="`<g-input :disable='true' class='disable'></g-input>`"></code>
+                                    <code v-text="`<g-input label='用户名'></g-input>`"></code>
+                                    <code v-text="`<g-input label='密码' err-msg='密码不能为空.'></g-input>`"></code>
+                                    <code v-text="`<g-input label='账号' err-msg='账号不能为空.' direction='vertical'></g-input>`"></code>
+                                </pre>
+                                <h4>待完善</h4>
+                                <p>1.增加输入框组</p>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n7">
+                            <div class="layout-demo">
+                                <h1>Layout / 布局</h1>
+                                <h2>简单用法</h2>
+                                <h3>预览</h3>
+                                <h4>默认布局</h4>
+                                <div class="layout-demo">
+                                    <g-layout>
+                                        <g-header>Header</g-header>
+                                        <g-content>Content</g-content>
+                                        <g-footer>Footer</g-footer>
+                                    </g-layout>
+                                </div>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-layout>`"></code>
+                                    <code v-text="`    <g-header></g-header>`"></code>
+                                    <code v-text="`    <g-content></g-content>`"></code>
+                                    <code v-text="`    <g-footer></g-footer>`"></code>
+                                    <code v-text="`</g-layout>`"></code>
+                                </pre>
+                                <h4>侧边栏布局</h4>
+                                <div class="layout-demo">
+                                    <g-layout>
+                                        <g-header>Header</g-header>
+                                        <g-layout>
+                                            <g-side>Side</g-side>
+                                            <g-content>Content</g-content>
+                                        </g-layout>
+                                        <g-footer>Footer</g-footer>
+                                    </g-layout>
+                                </div>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-layout>`"></code>
+                                    <code v-text="`    <g-header></g-header>`"></code>
+                                    <code v-text="`    <g-layout>`"></code>
+                                    <code v-text="`        <g-side></g-side>`"></code>
+                                    <code v-text="`        <g-content></g-content>`"></code>
+                                    <code v-text="`    </g-layout>`"></code>
+                                    <code v-text="`    <g-footer></g-footer>`"></code>
+                                    <code v-text="`</g-layout>`"></code>
+                                </pre>
+
+                                <p>以这种方式可以组合成很多种布局</p>
+                                <p>其它的布局待补充...</p>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n8">Grid</g-tab-pane>
+                        <g-tab-pane name="n9">Tabs</g-tab-pane>
+                        <g-tab-pane name="n10">Slide</g-tab-pane>
                     </g-tab-body>
                 </g-tabs>
             </g-tabs>
