@@ -58,8 +58,9 @@
                         <g-tab-item name="n6">Input</g-tab-item>
                         <g-tab-item name="n7">Layout</g-tab-item>
                         <g-tab-item name="n8">Grid</g-tab-item>
-                        <g-tab-item name="n9">Tabs</g-tab-item>
-                        <g-tab-item name="n10">Slide</g-tab-item>
+                        <g-tab-item name="n9">Toast</g-tab-item>
+                        <g-tab-item name="n10">Tabs</g-tab-item>
+                        <g-tab-item name="n11">Slide</g-tab-item>
 
                     </g-tab-head>
                     <g-tab-body>
@@ -206,12 +207,99 @@
                                 </pre>
 
                                 <p>以这种方式可以组合成很多种布局</p>
+                                <h3>待完善</h3>
                                 <p>其它的布局待补充...</p>
                             </div>
                         </g-tab-pane>
-                        <g-tab-pane name="n8">Grid</g-tab-pane>
-                        <g-tab-pane name="n9">Tabs</g-tab-pane>
-                        <g-tab-pane name="n10">Slide</g-tab-pane>
+                        <g-tab-pane name="n8">
+                            <div class="grid-demo">
+                                <h1>Grid / 网格</h1>
+                                <h2>简单用法</h2>
+                                <h3>预览</h3>
+                                <h4>有间距</h4>
+                                <g-row :gap="10" align="center">
+                                    <g-col :span="8"><div></div></g-col>
+                                    <g-col :span="8"><div></div></g-col>
+                                    <g-col :span="8"><div></div></g-col>
+                                </g-row>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-row :gap='10' align='center'>`"></code>
+                                    <code v-text="`    <g-col :span='8'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='8'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='8'><div></div></g-col>`"></code>
+                                    <code v-text="`</g-row>`"></code>
+                                </pre>
+                                <h4>无间距</h4>
+                                <g-row >
+                                    <g-col :span="6"><div></div></g-col>
+                                    <g-col :span="6"><div></div></g-col>
+                                    <g-col :span="6"><div></div></g-col>
+                                    <g-col :span="6"><div></div></g-col>
+                                </g-row>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-row>`"></code>
+                                    <code v-text="`    <g-col :span='6'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='6'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='6'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='6'><div></div></g-col>`"></code>
+                                    <code v-text="`</g-row>`"></code>
+                                </pre>
+                                <h4>大小不等</h4>
+                                <g-row :gap="16">
+                                    <g-col :span="4"><div></div></g-col>
+                                    <g-col :span="8"><div></div></g-col>
+                                    <g-col :span="10"><div></div></g-col>
+                                    <g-col :span="2"><div></div></g-col>
+                                </g-row>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-row :gap='16'>`"></code>
+                                    <code v-text="`    <g-col :span='4'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='8'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='10'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='2'><div></div></g-col>`"></code>
+                                    <code v-text="`</g-row>`"></code>
+                                </pre>
+                                <h4>偏移</h4>
+                                <g-row :gap="10">
+                                    <g-col :span="2"><div></div></g-col>
+                                    <g-col :span="2"><div></div></g-col>
+                                    <g-col :span="2" :offset="8"><div></div></g-col>
+                                    <g-col :span="2" :offset="8"><div></div></g-col>
+                                </g-row>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-row :gap='10'>`"></code>
+                                    <code v-text="`    <g-col :span='2'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='2'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='2' :offset='8'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='2' :offset='8'><div></div></g-col>`"></code>
+                                    <code v-text="`</g-row>`"></code>
+                                </pre>
+                                <h3>待完善</h3>
+                                <p>1.支持响应式</p>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n9">
+                            <div class="toast-demo">
+                                <h1>Toast / 提示</h1>
+                                <h2>简单使用</h2>
+                                <h3>预览</h3>
+                                <div style="margin:15px 0">
+                                    <g-button @click.native="$toast('Hello Bottom')">向下弹出</g-button>
+                                    <g-button @click.native="$toast('Hello Up',{position:'top',autoClose:true})">向上弹出</g-button>
+                                    <g-button @click.native="$toast('Hello Middle',{position:'middle'})">中间弹出</g-button>
+                                </div>
+                                <h3>代码</h3>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-button @click.native='$toast('Hello Bottom')'>向下弹出</g-button>`"></code>
+                                    <code v-text="`<g-button @click.native='$toast('Hello Up',{position:'top',autoClose:true})'>向上弹出</g-button>`"></code>
+                                    <code v-text="`<g-button @click.native='$toast('Hello Middle',{position:'middle'})'>中间弹出</g-button>`"></code>
+                                </pre>
+                                <h3>待完善</h3>
+                                <p>1.添加消失的动画</p>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n10">Tabs</g-tab-pane>
+                        <g-tab-pane name="n11">Slide</g-tab-pane>
                     </g-tab-body>
                 </g-tabs>
             </g-tabs>
