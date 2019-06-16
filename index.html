@@ -31,26 +31,27 @@
     <g-layout>
         <g-header>
             <g-row>
-                <g-col :span="4">
+                <g-col :span="5">
                     <div class="logo">GearUI官网</div>
                 </g-col>
-                <g-col :span="6" :offset="8">
+                <g-col :span="5"></g-col>
+                <g-col :span="8" class="search">
                     <g-input class="search-input"></g-input>
-                    <g-button class="search-btn">搜索</g-button>
+                    <g-button class="search-btn" @click.native="search">搜索</g-button>
                 </g-col>
                 <g-col :span="2">主页</g-col>
                 <g-col :span="2">文档</g-col>
-                <g-col :span="2">交流</g-col>
+                <g-col :span="2">关于</g-col>
 
             </g-row>
         </g-header>
         <g-content>
             <g-tabs>
-                <g-tabs selected="n3" direction="horizon">
-                    <g-tab-head>
-                        <g-tab-item name="n1">官网介绍</g-tab-item>
-                        <g-tab-item name="n2">入门介绍</g-tab-item>
-                        <g-tab-item name="n3">组件介绍</g-tab-item>
+                <g-tabs selected="n4" direction="horizon">
+                    <g-tab-head id="tab-head">
+                        <g-tab-item name="n1">介绍</g-tab-item>
+                        <g-tab-item name="n2">入门</g-tab-item>
+                        <g-tab-item name="n3">组件</g-tab-item>
                         <g-tab-item name="n4">Button</g-tab-item>
                         <g-tab-item name="n5">Input</g-tab-item>
                         <g-tab-item name="n6">Layout</g-tab-item>
@@ -61,10 +62,70 @@
 
                     </g-tab-head>
                     <g-tab-body>
-                        <g-tab-pane name="n1">官网介绍</g-tab-pane>
-                        <g-tab-pane name="n2">入门介绍</g-tab-pane>
+                        <g-tab-pane name="n1">
+                            <div>
+                                <h1>介绍</h1>
+                                <p>这是一个用 Vue 写的简单的 UI 框架</p>
+                                <p>目前已实现的 UI 组件分别有：</p>
+                                <g-slide>
+                                    <g-slide-item>
+                                        <div style="background-color: lightblue;height:100%" >Button / 按钮</div>
+                                    </g-slide-item>
+                                    <g-slide-item>
+                                        <div style="background-color: red ;height:100% ">Button / 按钮组</div>
+                                    </g-slide-item>
+                                    <g-slide-item>
+                                        <div style="background-color: pink ;height:100%">Input / 输入框</div>
+                                    </g-slide-item>
+                                    <g-slide-item>
+                                        <div style="background-color: orange ;height:100%">Icon / 图标</div>
+                                    </g-slide-item>
+                                    <g-slide-item>
+                                        <div style="background-color: orange ;height:100%">Layout / 布局</div>
+                                    </g-slide-item>
+                                    <g-slide-item>
+                                        <div style="background-color: orange ;height:100%">Grid / 网格</div>
+                                    </g-slide-item>
+                                    <g-slide-item>
+                                        <div style="background-color: orange ;height:100%">Tabs / 选项卡</div>
+                                    </g-slide-item>
+                                    <g-slide-item>
+                                        <div style="background-color: orange ;height:100%">Slide / 轮播</div>
+                                    </g-slide-item>
+                                </g-slide>
+                                <p>本官网就是用已实现的 UI 组件编写的!</p>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n2">入门</g-tab-pane>
                         <g-tab-pane name="n3">组件介绍</g-tab-pane>
-                        <g-tab-pane name="n4">Button</g-tab-pane>
+                        <g-tab-pane name="n4">
+                            <div>
+                                <h1>Button / 按钮</h1>
+                                <h2>简单用法</h2>
+                                <h3>预览</h3>
+                                <div>
+                                    <g-button icon='set'>设置</g-button>
+                                    <g-button>按钮</g-button>
+                                    <g-button icon='download' position='right'>下载</g-button>
+                                    <g-button icon='upload'>上传</g-button>
+                                    <g-button :loading="true">下载</g-button>
+                                    <g-button icon='download' :disable="true">下载</g-button>
+                                </div>
+
+                                <h3>代码</h3>
+                                <pre>
+                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
+                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
+                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
+                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
+                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
+                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
+                                </pre>
+
+
+                                <h4>待完善</h4>
+                            </div>
+                        </g-tab-pane>
                         <g-tab-pane name="n5">Input</g-tab-pane>
                         <g-tab-pane name="n6">Layout</g-tab-pane>
                         <g-tab-pane name="n7">Grid</g-tab-pane>
@@ -74,7 +135,7 @@
                 </g-tabs>
             </g-tabs>
         </g-content>
-        <g-footer>side</g-footer>
+        <g-footer>@GearUI官网</g-footer>
     </g-layout>
 </div>
 <script src='./src/app.js' ></script>

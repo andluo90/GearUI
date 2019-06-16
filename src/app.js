@@ -57,7 +57,21 @@ Vue.use(Plugin);
 const app = new Vue({
     el:"#app",
     data:{
-        title:"Hello Vue "
+        title:"Hello Vue ",
+        btncode:`
+                <g-button icon='set'>设置</g-button>
+                <g-button>按钮</g-button>
+                <g-button icon='download' position='right'>下载</g-button>
+                <g-button icon='upload'>上传</g-button>
+                <g-button :loading="true">下载</g-button>
+                <g-button icon='download' :disable="true">下载</g-button>`
+    },
+    methods:{
+        search(){
+            this.$toast('抱歉，搜索功能暂未完成.',{position:'top',autoClose:true})
+            console.log(`search...`);
+        }
     }
+
 
 });

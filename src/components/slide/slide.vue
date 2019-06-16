@@ -55,9 +55,13 @@
                 //设置初始数据
                 this.totalItems = this.$el.children[0].children.length;
                 this.totalImgItems = this.totalItems + 2;
-                const {width} = this.$el.getBoundingClientRect();
+                let {width} = this.$el.getBoundingClientRect();
                 this.width = width;
+                console.log(this.$el.getBoundingClientRect());
+                console.log(this.$el);
 
+
+                window.s = this;
                 this.appendTwoItems();
 
 

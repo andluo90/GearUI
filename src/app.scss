@@ -1,3 +1,7 @@
+
+$border-color:#eee;
+$search-btn-min-width:58px;
+
 * {margin: 0; padding: 0; box-sizing: border-box;}
 html{
   font-size: 14px;
@@ -5,12 +9,32 @@ html{
 
   body {
     #app {
+
+      pre {
+        display: flex;
+        flex-direction: column;
+        background: #333;
+        max-width: 600px;
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        font-size:1.1rem;
+        > code {
+          margin-bottom: 10px;
+
+          &:last-child{
+            margin-bottom: 0;
+
+          }
+
+        }
+      }
       .g-layout {
         height: 100vh;
 
         .g-header {
           padding:12px;
-          border-bottom:1px solid #eee;
+          border-bottom:1px solid $border-color;
 
           .logo {
             font-size:24px;
@@ -23,14 +47,66 @@ html{
             }
           }
           .search-btn {
+            min-width: $search-btn-min-width;
             margin-left:.5em;
           }
         }
 
         .g-content {
+
+
            .g-tab-head {
              width:25%;
+
+             .g-tab-item {
+                font-size:1.1rem;
+               &:first-child {
+                 padding-top:20px;
+               }
+             }
            }
+
+           .g-tab-pane {
+             color:#333;
+             .g-button {
+               margin-right:20px;
+             }
+             h1 {
+               padding-bottom:40px;
+             }
+             h2 {
+               padding-bottom:30px;
+             }
+             h3 {
+               padding:20px 0;
+             }
+             h4 {
+               padding:15px 0;
+             }
+             p {
+               font-size: 1.1rem;
+                margin:10px 0;
+             }
+             padding-left:60px;
+             padding-top:40px;
+           }
+
+          .g-slides {
+            width: 450px;
+            height: 300px;
+
+            .g-slide-item {
+              width: 450px;
+              height: 300px;
+            }
+          }
+        }
+        .g-footer {
+            border-top:1px solid $border-color;
+            padding-top:1.1rem;
+            padding-bottom:1.1rem;
+            text-align: center;
+            font-size: 1rem;
         }
       }
     }
