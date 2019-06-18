@@ -19,7 +19,6 @@ html{
         color: #fff;
         padding: 20px;
         border-radius: 8px;
-        //margin:20px 0;
         > code {
           margin-bottom: 10px;
 
@@ -38,14 +37,28 @@ html{
         margin-top:40px;
       }
 
+      #github {
+        color:cornflowerblue;
+        text-decoration: none;
+
+        &:hover {
+          color:#578CED
+        }
+      }
+
       .g-layout {
         height: 100vh;
 
         .g-header {
           padding:12px;
           border-bottom:1px solid $border-color;
+
+
           .btn {
             cursor: pointer;
+            &:hover {
+              color:#333;
+            }
           }
           .logo {
             font-size:24px;

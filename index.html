@@ -47,7 +47,7 @@
         <g-content id="content">
                 <g-tabs key="t1" id='tabs' :selected="select" direction="horizon" @select="tabSelect($event)">
                     <g-tab-head id="tab-head">
-                        <g-tab-item name="n1" id="xxx">介绍</g-tab-item>
+                        <g-tab-item name="n1">介绍</g-tab-item>
                         <g-tab-item name="n4">Button</g-tab-item>
                         <g-tab-item name="n5">ButtonGroup</g-tab-item>
                         <g-tab-item name="n6">Input</g-tab-item>
@@ -66,7 +66,7 @@
                                 <p>涵盖了常用的几个组件</p>
                                 <p>本官网就是用已实现的 UI 组件编写的!</p>
                                 <p>项目代码</p>
-                                <a href="https://www.baidu.com">    baidu.com</a>
+                                <a href="https://github.com/andluo90/GearUI" target='_blank' id='github'>https://github.com/andluo90/GearUI</a>
                             </div>
                         </g-tab-pane>
                         <g-tab-pane name="n4">
@@ -86,11 +86,11 @@
                                 <h3>代码</h3>
                                 <pre class="language-xml">
                                     <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
-                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
-                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
-                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
-                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
-                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
+                                    <code v-text="`<g-button icon='set'></g-button>`"></code>
+                                    <code v-text="`<g-button icon='download'>下载</g-button>`"></code>
+                                    <code v-text="`<g-button icon='upload'>上传</g-button>`"></code>
+                                    <code v-text="`<g-button :loading='true'>下载</g-button>`"></code>
+                                    <code v-text="`<g-button icon='download' :disable='true'>下载</g-button>`"></code>
                                 </pre>
 
 
