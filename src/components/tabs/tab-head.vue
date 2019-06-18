@@ -15,26 +15,24 @@
                     index:[],
                     width:[],
                     height:[]
-                }
+                },
+                defaultWidth:54,
+                defaultHeight:54
+
             }
         },
 
-        created(){
-            this.eventHub.$on('updated:xxx',(name,dataObject)=>{
-                console.log(`xxx`);
-                console.log(name);
-                console.log(dataObject);
-            })
-        },
+
 
 
         mounted () {
             this.$children.forEach((i)=>{
-                const {width,height} = i.$el.getBoundingClientRect();
-                // if(width === 0 || height === 0){
-                //     console.log(`width is ${width} , height is ${height}`);
-                //     console.log(i.$el)
-                // }
+                let {width,height} = i.$el.getBoundingClientRect();
+                if(width ===0 || height === 0){
+                    width = this.defaultWidth;
+                    height = this.defaultHeight;
+                    console.warn(`tab head item width and height is 0`);
+                }
                 this.itemData.index.push(i.name);
                 this.itemData.width.push(width);
                 this.itemData.height.push(height)
