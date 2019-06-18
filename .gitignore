@@ -3,3 +3,5 @@ node_modules/
 dist/
 .idea/
 .idea/workspace.xml
+.DS_Store
+.idea

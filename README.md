@@ -3,12 +3,13 @@
 
 ### 官网
 待提供
-PS:该官网就是用此 UI框架 搭建的。
+
+_PS:该官网就是用此 UI框架 搭建的。_
 
 ### 技术栈
 vue/parcel
 
-###预览图
+### 预览图
 ![1](/shortcut/shortcut1.png)
 ![2](/shortcut/shortcut2.png)
 
