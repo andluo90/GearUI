@@ -57,7 +57,7 @@ Vue.use(Plugin);
 new Vue({
     el:"#app",
     data:{
-        select:'n5',
+        select:'n1',
         searchValue:'测试'
     },
 
