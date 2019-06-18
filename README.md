@@ -2,12 +2,13 @@
 一个用Vue写的简单UI框架
 
 ### 官网
-待提供
+http://gearui.top
+
 
 _PS:该官网就是用此 UI框架 搭建的。_
 
 ### 技术栈
-vue/parcel
+vue/parcel/sass
 
 ### 预览图
 ![1](/shortcut/shortcut1.png)
