@@ -32,6 +32,11 @@ html{
       #pre1 {
         margin-top:30px;
       }
+
+      #content {
+        margin-top:40px;
+      }
+
       .g-layout {
         height: 100vh;
 
@@ -61,8 +66,11 @@ html{
           overflow: scroll;
 
 
+
           #tab-head {
             width:25%;
+
+
 
             >.g-tab-item {
               font-size:1.1rem;
