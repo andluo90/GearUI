@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/prism.501e32ca.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/GearIcon.28686f52.png">
+
+    <title>Gear UI</title>
+    <style>.g-slides {
+            width: 300px;
+            height: 200px;
+        }
+
+
+        .g-slides .img>div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: #fff;
+        }</style>
+<script src="/prism.501e32ca.js"></script><link rel="stylesheet" href="/app.a6a4d504.css"></head>
+<body>
+<div id="app">
+    <g-layout>
+        <g-header>
+            <g-row>
+                <g-col :span="5">
+                    <div class="logo btn" @click="returnHome">GearUI 官网</div>
+                </g-col>
+                <g-col :span="5"></g-col>
+                <g-col :span="8" class="search">
+                    <g-input class="search-input"></g-input>
+                    <g-button class="search-btn" @click.native="search">搜索</g-button>
+                </g-col>
+                <g-col :span="2" class="btn" @click.native="returnHome">主页</g-col>
+                <g-col :span="2" class="btn">GitHub</g-col>
+                <g-col :span="2" class="btn" @click.native="returnHome">关于</g-col>
+
+            </g-row>
+        </g-header>
+        <g-content id="content">
+                <g-tabs key="t1" id="tabs" :selected="select" direction="horizon" @select="tabSelect($event)">
+                    <g-tab-head id="tab-head">
+                        <g-tab-item name="n1">介绍</g-tab-item>
+                        <g-tab-item name="n4">Button</g-tab-item>
+                        <g-tab-item name="n5">ButtonGroup</g-tab-item>
+                        <g-tab-item name="n6">Input</g-tab-item>
+                        <g-tab-item name="n7">Layout</g-tab-item>
+                        <g-tab-item name="n8">Grid</g-tab-item>
+                        <g-tab-item name="n9">Toast</g-tab-item>
+                        <g-tab-item name="n10">Tabs</g-tab-item>
+                        <g-tab-item name="n11">Slide</g-tab-item>
+
+                    </g-tab-head>
+                    <g-tab-body id="tab-body">
+                        <g-tab-pane name="n1">
+                            <div>
+                                <h1>介绍</h1>
+                                <p>这是一个用 Vue 写的简单的 UI 框架</p>
+                                <p>涵盖了常用的几个组件</p>
+                                <p>本官网就是用已实现的 UI 组件编写的!</p>
+                                <p>项目代码</p>
+                                <a href="https://github.com/andluo90/GearUI" target="_blank" id="github">https://github.com/andluo90/GearUI</a>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n4">
+                            <div class="button-demo">
+                                <h1>Button / 按钮</h1>
+                                <h2>简单用法</h2>
+                                <h3>预览</h3>
+                                <div>
+                                    <g-button icon="set">设置</g-button>
+                                    <g-button>按钮</g-button>
+                                    <g-button icon="download" position="right">下载</g-button>
+                                    <g-button icon="upload">上传</g-button>
+                                    <g-button :loading="true">下载</g-button>
+                                    <g-button icon="download" :disable="true">下载</g-button>
+                                </div>
+
+                                <h3>代码</h3>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-button icon='set'>设置</g-button>`"></code>
+                                    <code v-text="`<g-button icon='set'></g-button>`"></code>
+                                    <code v-text="`<g-button icon='download'>下载</g-button>`"></code>
+                                    <code v-text="`<g-button icon='upload'>上传</g-button>`"></code>
+                                    <code v-text="`<g-button :loading='true'>下载</g-button>`"></code>
+                                    <code v-text="`<g-button icon='download' :disable='true'>下载</g-button>`"></code>
+                                </pre>
+
+
+                                <h4>待完善</h4>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n5">
+                            <div>
+                                <h1>ButtonGroup / 按钮组</h1>
+                                <h2>简单用法</h2>
+                                <h3>预览</h3>
+                                <div>
+                                    <g-button-group>
+                                        <g-button icon="back">上一页</g-button>
+                                        <g-button icon="forward" position="right">下一页</g-button>
+                                    </g-button-group>
+
+                                    <g-button-group>
+                                        <g-button>上一页</g-button>
+                                        <g-button>更多</g-button>
+                                        <g-button>下一页</g-button>
+                                    </g-button-group>
+                                </div>
+                                <h3>代码</h3>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-button-group>`"></code>
+                                    <code v-text="`    <g-button icon='back'>上一页</g-button>`"></code>
+                                    <code v-text="`    <g-button icon='forward' position='right'>下一页</g-button>`"></code>
+                                    <code v-text="`</g-button-group>`"></code>
+                                    <code v-text="`<g-button-group>`"></code>
+                                    <code v-text="`    <g-button icon='back'>上一页</g-button>`"></code>
+                                    <code v-text="`    <g-button>更多</g-button>`"></code>
+                                    <code v-text="`    <g-button icon='forward' position='right'>下一页</g-button>`"></code>
+                                    <code v-text="`</g-button-group>`"></code>
+                                </pre>
+                                <h3>待完善</h3>
+
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n6">
+                            <div>
+                                <h1>Input / 输入框</h1>
+                                <h2>简单用法</h2>
+                                <h3>预览</h3>
+                                <div class="input-demo">
+                                    <g-input placeholder="请输入"></g-input>
+                                    <g-input :disable="true" class="disable"></g-input>
+                                </div>
+
+                                <div class="input-demo">
+                                    <g-input label="用户名"></g-input>
+                                    <g-input label="密码" err-msg="密码不能为空."></g-input>
+                                </div>
+                                <div class="input-demo">
+                                    <g-input label="账号" err-msg="账号不能为空." direction="vertical"></g-input>
+                                </div>
+                                <h3>代码</h3>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-input placeholder='请输入'></g-input>`"></code>
+                                    <code v-text="`<g-input :disable='true' class='disable'></g-input>`"></code>
+                                    <code v-text="`<g-input label='用户名'></g-input>`"></code>
+                                    <code v-text="`<g-input label='密码' err-msg='密码不能为空.'></g-input>`"></code>
+                                    <code v-text="`<g-input label='账号' err-msg='账号不能为空.' direction='vertical'></g-input>`"></code>
+                                </pre>
+                                <h4>待完善</h4>
+                                <p>1.增加输入框组</p>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n7">
+                            <div class="layout-demo">
+                                <h1>Layout / 布局</h1>
+                                <h2>简单用法</h2>
+                                <h3>预览</h3>
+                                <h4>默认布局</h4>
+                                <div class="layout-demo">
+                                    <g-layout>
+                                        <g-header>Header</g-header>
+                                        <g-content>Content</g-content>
+                                        <g-footer>Footer</g-footer>
+                                    </g-layout>
+                                </div>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-layout>`"></code>
+                                    <code v-text="`    <g-header></g-header>`"></code>
+                                    <code v-text="`    <g-content></g-content>`"></code>
+                                    <code v-text="`    <g-footer></g-footer>`"></code>
+                                    <code v-text="`</g-layout>`"></code>
+                                </pre>
+                                <h4>侧边栏布局</h4>
+                                <div class="layout-demo">
+                                    <g-layout>
+                                        <g-header>Header</g-header>
+                                        <g-layout>
+                                            <g-side>Side</g-side>
+                                            <g-content>Content</g-content>
+                                        </g-layout>
+                                        <g-footer>Footer</g-footer>
+                                    </g-layout>
+                                </div>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-layout>`"></code>
+                                    <code v-text="`    <g-header></g-header>`"></code>
+                                    <code v-text="`    <g-layout>`"></code>
+                                    <code v-text="`        <g-side></g-side>`"></code>
+                                    <code v-text="`        <g-content></g-content>`"></code>
+                                    <code v-text="`    </g-layout>`"></code>
+                                    <code v-text="`    <g-footer></g-footer>`"></code>
+                                    <code v-text="`</g-layout>`"></code>
+                                </pre>
+
+                                <p>以这种方式可以组合成很多种布局</p>
+                                <h3>待完善</h3>
+                                <p>其它的布局待补充...</p>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n8">
+                            <div class="grid-demo">
+                                <h1>Grid / 网格</h1>
+                                <h2>简单用法</h2>
+                                <h3>预览</h3>
+                                <h4>有间距</h4>
+                                <g-row :gap="10" align="center">
+                                    <g-col :span="8"><div></div></g-col>
+                                    <g-col :span="8"><div></div></g-col>
+                                    <g-col :span="8"><div></div></g-col>
+                                </g-row>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-row :gap='10' align='center'>`"></code>
+                                    <code v-text="`    <g-col :span='8'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='8'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='8'><div></div></g-col>`"></code>
+                                    <code v-text="`</g-row>`"></code>
+                                </pre>
+                                <h4>无间距</h4>
+                                <g-row>
+                                    <g-col :span="6"><div></div></g-col>
+                                    <g-col :span="6"><div></div></g-col>
+                                    <g-col :span="6"><div></div></g-col>
+                                    <g-col :span="6"><div></div></g-col>
+                                </g-row>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-row>`"></code>
+                                    <code v-text="`    <g-col :span='6'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='6'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='6'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='6'><div></div></g-col>`"></code>
+                                    <code v-text="`</g-row>`"></code>
+                                </pre>
+                                <h4>大小不等</h4>
+                                <g-row :gap="16">
+                                    <g-col :span="4"><div></div></g-col>
+                                    <g-col :span="8"><div></div></g-col>
+                                    <g-col :span="10"><div></div></g-col>
+                                    <g-col :span="2"><div></div></g-col>
+                                </g-row>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-row :gap='16'>`"></code>
+                                    <code v-text="`    <g-col :span='4'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='8'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='10'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='2'><div></div></g-col>`"></code>
+                                    <code v-text="`</g-row>`"></code>
+                                </pre>
+                                <h4>偏移</h4>
+                                <g-row :gap="10">
+                                    <g-col :span="2"><div></div></g-col>
+                                    <g-col :span="2"><div></div></g-col>
+                                    <g-col :span="2" :offset="8"><div></div></g-col>
+                                    <g-col :span="2" :offset="8"><div></div></g-col>
+                                </g-row>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-row :gap='10'>`"></code>
+                                    <code v-text="`    <g-col :span='2'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='2'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='2' :offset='8'><div></div></g-col>`"></code>
+                                    <code v-text="`    <g-col :span='2' :offset='8'><div></div></g-col>`"></code>
+                                    <code v-text="`</g-row>`"></code>
+                                </pre>
+                                <h3>待完善</h3>
+                                <p>1.支持响应式</p>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n9">
+                            <div class="toast-demo">
+                                <h1>Toast / 提示</h1>
+                                <h2>简单使用</h2>
+                                <h3>预览</h3>
+                                <div style="margin:15px 0">
+                                    <g-button @click.native="$toast('Hello Bottom')">向下弹出</g-button>
+                                    <g-button @click.native="$toast('Hello Up',{position:'top',autoClose:true})">向上弹出</g-button>
+                                    <g-button @click.native="$toast('Hello Middle',{position:'middle'})">中间弹出</g-button>
+                                </div>
+                                <h3>代码</h3>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-button @click.native='$toast('Hello Bottom')'>向下弹出</g-button>`"></code>
+                                    <code v-text="`<g-button @click.native='$toast('Hello Up',{position:'top',autoClose:true})'>向上弹出</g-button>`"></code>
+                                    <code v-text="`<g-button @click.native='$toast('Hello Middle',{position:'middle'})'>中间弹出</g-button>`"></code>
+                                </pre>
+                                <h3>待完善</h3>
+                                <p>1.添加消失的动画</p>
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n10">
+                            <div class="tabs-demo">
+                                <h1>Tabs / 选项卡</h1>
+                                <h2>简单使用</h2>
+                                <h3>预览</h3>
+                                <h4>上下排列</h4>
+                                <g-tabs key="t2" selected="n2">
+                                    <g-tab-head>
+                                        <g-tab-item name="n1">选项1</g-tab-item>
+                                        <g-tab-item name="n2">选项2</g-tab-item>
+                                        <g-tab-item name="n3">选项3</g-tab-item>
+                                    </g-tab-head>
+                                    <g-tab-body>
+                                        <g-tab-pane name="n1">内容1</g-tab-pane>
+                                        <g-tab-pane name="n2">内容2</g-tab-pane>
+                                        <g-tab-pane name="n3">内容3</g-tab-pane>
+                                    </g-tab-body>
+                                </g-tabs>
+                                <pre class="language-xml">
+                                    <code v-text="`<g-tabs selected='n2'>`"></code>
+                                    <code v-text="`    <g-tab-head>`"></code>
+                                    <code v-text="`        <g-tab-item name='n1'>选项1</g-tab-item>`"></code>
+                                    <code v-text="`       <g-tab-item name='n2'>选项2</g-tab-item>`"></code>
+                                    <code v-text="`        <g-tab-item name='n3'>选项3</g-tab-item>`"></code>
+                                    <code v-text="`    </g-tab-head>`"></code>
+                                    <code v-text="`    <g-tab-body>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n1'>内容1</g-tab-pane>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n2'>内容2</g-tab-pane>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n3'>内容3</g-tab-pane>`"></code>
+                                    <code v-text="`    </g-tab-body>`"></code>
+                                    <code v-text="`</g-tabs>`"></code>
+                                </pre>
+                                <h4>左右排列</h4>
+                                <div>
+                                    <g-tabs selected="n3" direction="horizon">
+                                        <g-tab-head>
+                                            <g-tab-item name="n1">选项1</g-tab-item>
+                                            <g-tab-item name="n2">选项2</g-tab-item>
+                                            <g-tab-item name="n3">选项3</g-tab-item>
+                                        </g-tab-head>
+                                        <g-tab-body>
+                                            <g-tab-pane name="n1">内容1</g-tab-pane>
+                                            <g-tab-pane name="n2">内容2</g-tab-pane>
+                                            <g-tab-pane name="n3">内容3</g-tab-pane>
+                                        </g-tab-body>
+                                    </g-tabs>
+                                </div>
+                                <pre class="language-xml" id="pre1">
+                                    <code v-text="`<g-tabs selected='n2'>`"></code>
+                                    <code v-text="`    <g-tab-head>`"></code>
+                                    <code v-text="`        <g-tab-item name='n1'>选项1</g-tab-item>`"></code>
+                                    <code v-text="`       <g-tab-item name='n2'>选项2</g-tab-item>`"></code>
+                                    <code v-text="`        <g-tab-item name='n3'>选项3</g-tab-item>`"></code>
+                                    <code v-text="`    </g-tab-head>`"></code>
+                                    <code v-text="`    <g-tab-body>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n1'>内容1</g-tab-pane>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n2'>内容2</g-tab-pane>`"></code>
+                                    <code v-text="`        <g-tab-pane name='n3'>内容3</g-tab-pane>`"></code>
+                                    <code v-text="`    </g-tab-body>`"></code>
+                                    <code v-text="`</g-tabs>`"></code>
+                                </pre>
+
+                                <h3>待完善</h3>
+
+                            </div>
+                        </g-tab-pane>
+                        <g-tab-pane name="n11">
+                            <h1>Slide / 无缝轮播组件</h1>
+                            <h2>简单使用</h2>
+                            <h3>预览</h3>
+                            <g-slide :width="450">
+                            <g-slide-item>
+                                <div style="background-color: lightblue;height:100%">1</div>
+                            </g-slide-item>
+                            <g-slide-item>
+                                <div style="background-color: lightcoral ;height:100% ">2</div>
+                            </g-slide-item>
+                            <g-slide-item>
+                                <div style="background-color: lightsalmon ;height:100%">3</div>
+                            </g-slide-item>
+                            <g-slide-item>
+                                <div style="background-color: lightsteelblue ;height:100%">4</div>
+                            </g-slide-item>
+                        </g-slide>
+                            <h3>代码</h3>
+                            <pre class="language-xml">
+                                <code v-text="`<g-slide :width='450' :autoPlay='false'>`"></code>
+                                <code v-text="`    <g-slide-item>`"></code>
+                                <code v-text="`        <div>1</div>`"></code>
+                                <code v-text="`    </g-slide-item>`"></code>
+                                <code v-text="`    <g-slide-item>`"></code>
+                                <code v-text="`        <div>2</div>`"></code>
+                                <code v-text="`    </g-slide-item>`"></code>
+                                <code v-text="`    <g-slide-item>`"></code>
+                                <code v-text="`        <div>3</div>`"></code>
+                                <code v-text="`    </g-slide-item>`"></code>
+                                <code v-text="`    <g-slide-item>`"></code>
+                                <code v-text="`        <div>4</div>`"></code>
+                                <code v-text="`    </g-slide-item>`"></code>
+                                <code v-text="`</g-slide>`"></code>
+
+                            </pre>
+                            <h3>待完善</h3>
+                            <p>整个组件写得不太好，需要重新优化</p>
+                        </g-tab-pane>
+                    </g-tab-body>
+                </g-tabs>
+
+        </g-content>
+        <g-footer>@GearUI 官网</g-footer>
+    </g-layout>
+</div>
+<script src="/prism.6307abca.js"></script>
+<script src="/app.a6a4d504.js"></script>
+</body>
+
+</html>

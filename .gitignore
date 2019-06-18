@@ -1,6 +1,5 @@
 node_modules/
 .cache/
-dist/
 .idea/
 .idea/workspace.xml
 .DS_Store
