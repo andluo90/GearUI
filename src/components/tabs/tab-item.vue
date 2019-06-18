@@ -22,6 +22,7 @@
         methods:{
             click:function () {
                 this.eventHub.$emit('update:selected',this.name)
+
             }
         },
         created() {

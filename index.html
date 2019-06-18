@@ -29,24 +29,23 @@
         <g-header>
             <g-row>
                 <g-col :span="5">
-                    <div class="logo btn">GearUI官网</div>
+                    <div class="logo btn" @click="returnHome">GearUI 官网</div>
                 </g-col>
                 <g-col :span="5"></g-col>
                 <g-col :span="8" class="search">
-                    <g-input class="search-input"></g-input>
-                    <g-button class="search-btn" @click.native="search">搜索</g-button>
+                    <g-input class="search-input" ></g-input>
+                    <g-button class="search-btn" @click.native="search" >搜索</g-button>
                 </g-col>
-                <g-col :span="2" class="btn">主页</g-col>
-                <g-col :span="2" class="btn">文档</g-col>
-                <g-col :span="2" class='btn' @click.native="goHome">关于</g-col>
+                <g-col :span="2" class="btn" @click.native="returnHome">主页</g-col>
+                <g-col :span="2" class="btn">GitHub</g-col>
+                <g-col :span="2" class='btn' @click.native="returnHome">关于</g-col>
 
             </g-row>
         </g-header>
         <g-content>
-                <g-tabs key="t1" id='tabs' :selected="select" direction="horizon">
+                <g-tabs key="t1" id='tabs' :selected="select" direction="horizon" @select="tabSelect($event)">
                     <g-tab-head id="tab-head">
                         <g-tab-item name="n1">介绍</g-tab-item>
-                        <g-tab-item name="n3">组件</g-tab-item>
                         <g-tab-item name="n4">Button</g-tab-item>
                         <g-tab-item name="n5">ButtonGroup</g-tab-item>
                         <g-tab-item name="n6">Input</g-tab-item>
@@ -68,7 +67,6 @@
                                 <a href="https://www.baidu.com">    baidu.com</a>
                             </div>
                         </g-tab-pane>
-                        <g-tab-pane name="n3">组件介绍</g-tab-pane>
                         <g-tab-pane name="n4">
                             <div class="button-demo">
                                 <h1>Button / 按钮</h1>

@@ -57,22 +57,25 @@ Vue.use(Plugin);
 new Vue({
     el:"#app",
     data:{
-        select:'n1'
+        select:'n5',
+        searchValue:'测试'
     },
+
     methods:{
+        returnHome(){
+            //回到介绍页
+            if(this.select !== 'n1'){
+
+                this.select = 'n1'
+            }
+        },
         search(){
             this.$toast('抱歉，搜索功能暂未完成.',{position:'top',autoClose:true})
-            console.log(`search...`);
         },
-        goHome(){
-            console.log(`home...`);
-            if(this.select !== 'n1'){
-                this.select = 'n1';
-            }
+        tabSelect(name){
+            this.select = name
         }
-    },
-    mounted(){
-      window.app = this;
+
     }
 
 

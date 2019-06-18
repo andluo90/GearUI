@@ -2,7 +2,7 @@
 
     <div class="g-input" :class="classes">
         <span v-if="label">{{ label }}</span>
-        <input :value="value" :placeholder="placeholder" :readonly="disable" />
+        <input :value="value" @input="onInput($event)" :placeholder="placeholder" :readonly="disable" />
         <template v-if="errMsg">
             <div class="errWrapper">
                 <Icon name="error" class="error"></Icon>
@@ -22,9 +22,9 @@
             Icon
         },
         props:{
-            value:{
-              type:String
-            },
+            // value:{
+            //   type:String
+            // },
             disable:{
               type:Boolean,
               default:false
@@ -44,9 +44,21 @@
             }
         },
 
+        data(){
+            return {
+                value:''
+            }
+        },
+
         computed:{
             classes:function () {
                 return [`${this.direction}`,this.disable?'disable':'']
+            }
+        },
+        methods:{
+            onInput:function (e) {
+                this.value = e.target.value;
+                this.$emit('input',e.target.value)
             }
         }
     }

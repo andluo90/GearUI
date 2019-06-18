@@ -26,6 +26,11 @@
                 eventHub:new Vue()
             }
         },
+        watch:{
+            selected:function () {
+                this.eventHub.$emit('update:selected',this.selected)
+            }
+        },
         provide(){
             return {
                 eventHub:this.eventHub,
@@ -37,6 +42,7 @@
             this.eventHub.$on('update:selected',(name)=>{
                 if(this.selectedName !== name){
                     this.selectedName = name;
+                    this.$emit('select',name)
                 }
             })
         },
